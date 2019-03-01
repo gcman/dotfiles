@@ -1,0 +1,318 @@
+#+PROPERTY: header-args :dir "~"
+* Global .gitignore
+From GitHub's [[https://github.com/github/gitignore][collection of useful .gitignore templates]]. The only thing I've
+changed is to keep =.pdf= files. These are often useful to be able to see in
+GitHub, and even if they could be generated again, sometimes configurations
+change, which makes =.tex= files obsolote. This is obviously not ideal, but it
+happens. Also, some PDFs take a long time to compile, and it just saves time to
+not have to recompile them when cloning the file repository.
+#+BEGIN_SRC fundamental :tangle ~/.gitignore
+## Core latex/pdflatex auxiliary files:
+,*.aux
+,*.lof
+,*.log
+,*.lot
+,*.fls
+,*.out
+,*.toc
+,*.fmt
+,*.fot
+,*.cb
+,*.cb2
+.*.lb
+
+## Intermediate documents:
+,*.dvi
+,*.xdv
+,*-converted-to.*
+# these rules might exclude image files for figures etc.
+# *.ps
+# *.eps
+
+## Bibliography auxiliary files (bibtex/biblatex/biber):
+,*.bbl
+,*.bcf
+,*.blg
+,*-blx.aux
+,*-blx.bib
+,*.run.xml
+
+## Build tool auxiliary files:
+,*.fdb_latexmk
+,*.synctex
+,*.synctex(busy)
+,*.synctex.gz
+,*.synctex.gz(busy)
+,*.pdfsync
+
+## Build tool directories for auxiliary files
+# latexrun
+latex.out/
+
+## Auxiliary and intermediate files from other packages:
+# algorithms
+,*.alg
+,*.loa
+
+# achemso
+acs-*.bib
+
+# amsthm
+,*.thm
+
+# beamer
+,*.nav
+,*.pre
+,*.snm
+,*.vrb
+
+# changes
+,*.soc
+
+# comment
+,*.cut
+
+# cprotect
+,*.cpt
+
+# elsarticle (documentclass of Elsevier journals)
+,*.spl
+
+# endnotes
+,*.ent
+
+# fixme
+,*.lox
+
+# feynmf/feynmp
+,*.mf
+,*.mp
+,*.t[1-9]
+,*.t[1-9][0-9]
+,*.tfm
+
+#(r)(e)ledmac/(r)(e)ledpar
+,*.end
+,*.?end
+,*.[1-9]
+,*.[1-9][0-9]
+,*.[1-9][0-9][0-9]
+,*.[1-9]R
+,*.[1-9][0-9]R
+,*.[1-9][0-9][0-9]R
+,*.eledsec[1-9]
+,*.eledsec[1-9]R
+,*.eledsec[1-9][0-9]
+,*.eledsec[1-9][0-9]R
+,*.eledsec[1-9][0-9][0-9]
+,*.eledsec[1-9][0-9][0-9]R
+
+# glossaries
+,*.acn
+,*.acr
+,*.glg
+,*.glo
+,*.gls
+,*.glsdefs
+
+# gnuplottex
+,*-gnuplottex-*
+
+# gregoriotex
+,*.gaux
+,*.gtex
+
+# htlatex
+,*.4ct
+,*.4tc
+,*.idv
+,*.lg
+,*.trc
+,*.xref
+
+# hyperref
+,*.brf
+
+# knitr
+,*-concordance.tex
+
+# listings
+,*.lol
+
+# makeidx
+,*.idx
+,*.ilg
+,*.ind
+,*.ist
+
+# minitoc
+,*.maf
+,*.mlf
+,*.mlt
+,*.mtc[0-9]*
+,*.slf[0-9]*
+,*.slt[0-9]*
+,*.stc[0-9]*
+
+# minted
+_minted*
+,*.pyg
+
+# morewrites
+,*.mw
+
+# nomencl
+,*.nlg
+,*.nlo
+,*.nls
+
+# pax
+,*.pax
+
+# pdfpcnotes
+,*.pdfpc
+
+# sagetex
+,*.sagetex.sage
+,*.sagetex.py
+,*.sagetex.scmd
+
+# scrwfile
+,*.wrt
+
+# sympy
+,*.sout
+,*.sympy
+sympy-plots-for-*.tex/
+
+# pdfcomment
+,*.upa
+,*.upb
+
+# pythontex
+,*.pytxcode
+pythontex-files-*/
+
+# tcolorbox
+,*.listing
+
+# thmtools
+,*.loe
+
+# TikZ & PGF
+,*.dpth
+,*.md5
+,*.auxlock
+
+# todonotes
+,*.tdo
+
+# vhistory
+,*.hst
+,*.ver
+
+# easy-todo
+,*.lod
+
+# xcolor
+,*.xcp
+
+# xmpincl
+,*.xmpi
+
+# xindy
+,*.xdy
+
+# xypic precompiled matrices
+,*.xyc
+
+# endfloat
+,*.ttt
+,*.fff
+
+# Latexian
+TSWLatexianTemp*
+
+## Editors:
+# WinEdt
+,*.bak
+,*.sav
+
+# Texpad
+.texpadtmp
+
+# LyX
+,*.lyx~
+
+# Kile
+,*.backup
+
+# KBibTeX
+,*~[0-9]*
+
+# auto folder when using emacs and auctex
+./auto/*
+,*.el
+
+# expex forward references with \gathertags
+,*-tags.tex
+
+# standalone packages
+,*.sta
+#+END_SRC
+* External Monitors
+When I connect an external monitor, the screen is not properly sized. In
+particular, the content on the external monitor is too zoomed in. To fix this, I
+wrote an =xrandr= command.
+#+BEGIN_SRC sh :tangle ~/.config/resize-desktop.sh :shebang #!/bin/sh
+xrandr --output DP-1 --scale 2x2
+xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --mode 1920x1080 --pos 0x0 --rotate normal --output eDP-1 --primary --mode 3200x1800 --pos 352x2160 --rotate normal --output DP-2 --off
+#+END_SRC
+** Monitor Connected Hook
+With this
+#+BEGIN_SRC python :tangle /sudo::/etc/init.d/connect_screen_hook.py :shebang #!usr/bin/env python3
+import subprocess
+import time
+
+connect_command = "~/.config/resize-desktop.sh"
+disconnect_command = ""
+
+while True:
+    time.sleep(5)
+    try:
+        subprocess.Popen(["xrandr"])
+    except:
+        pass
+    else:
+        break
+
+
+def get(cmd): return subprocess.check_output(cmd).decode("utf-8")
+
+
+def count_screens(xr): return xr.count(" connected ")
+
+
+def run_command(cmd): subprocess.Popen(["/bin/bash", "-c", cmd])
+
+
+xr1 = None
+
+while True:
+    time.sleep(5)
+    # second count
+    xr2 = count_screens(get(["xrandr"]))
+    # check if there is a change in the screen state
+    if xr2 != xr1:
+        if xr2 == 2:
+            # command to run if connected (two screens)
+            run_command(connect_command)
+        elif xr2 == 1:
+            # command to run if disconnected (one screen)
+            # uncomment run_command(disconnect_command) to enable
+            # then also comment out pass
+            pass
+            # run_command(disconnect_command)
+    # set the second count as initial state for the next loop
+    xr1 = xr2
+#+END_SRC

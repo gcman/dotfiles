@@ -259,6 +259,9 @@ TSWLatexianTemp*
 
 # standalone packages
 ,*.sta
+
+# Cache files
+*/cache/
 #+END_SRC
 * External Monitors
 When I connect an external monitor, the screen is not properly sized. In

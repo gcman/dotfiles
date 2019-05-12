@@ -1,0 +1,23 @@
+IMAPAccount uni
+Host outlook.office365.com
+User gmanohar@stanford.edu
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.mbsyncpass.gpg"
+Port 993
+SSLType IMAPS
+AuthMechs Login
+
+IMAPStore uni-remote
+Account uni
+
+MaildirStore uni-local
+Path ~/mail/mbsyncmail/
+Inbox ~/mail/mbsyncmail/INBOX
+
+Channel uni
+Master :uni-remote:
+Slave :uni-local:
+Patterns "Sent Items" "INBOX" "Deleted Items"
+Create Slave
+Sync All
+Expunge Both
+SyncState *

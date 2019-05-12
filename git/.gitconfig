@@ -1,0 +1,5 @@
+[user]
+	email = gcmanohar001@gmail.com
+	name = Gautam Manohar
+[core]
+	excludesfile = ~/.gitignore

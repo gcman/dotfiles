@@ -23,6 +23,7 @@ mpd
 mpv
 network-manager-applet
 networkmanager
+polybar
 powertop
 openssh
 redshift
@@ -32,8 +33,10 @@ ripgrep
 slock
 stow
 tlp
-ttf-hack
 ttf-dejavu
+ttf-font-awesome
+ttf-hack
+ttf-symbola
 unzip
 xbindkeys
 xclip

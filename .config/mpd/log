@@ -2200,3 +2200,18 @@ May 12 22:24 : player: played "Panic! at the Disco - Pray For The Wicked [FLAC]/
 May 12 22:27 : player: played "Panic! at the Disco - Pray For The Wicked [FLAC]/Panic_At_The_Disco-Pray_For_The_Wicked-CD-FLAC-2018-FiXIE/09-panic_at_the_disco-king_of_the_clouds.flac"
 May 12 22:29 : player: played "Panic! at the Disco - Pray For The Wicked [FLAC]/Panic_At_The_Disco-Pray_For_The_Wicked-CD-FLAC-2018-FiXIE/10-panic_at_the_disco-old_fashioned.flac"
 May 12 22:59 : player: played "Panic! at the Disco - Pray For The Wicked [FLAC]/Panic_At_The_Disco-Pray_For_The_Wicked-CD-FLAC-2018-FiXIE/11-panic_at_the_disco-dying_in_la.flac"
+May 13 11:26 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 13 11:26 : client: [0] opened from 127.0.0.1:41438
+May 13 11:27 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 13 11:27 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+May 13 11:30 : player: played "Chance the Rapper - Coloring Book/01 - All We Got (feat. Kanye West & Chicago Children's Choir).mp3"
+May 13 11:35 : player: played "Chance the Rapper - Coloring Book/02 - No Problem (feat. Lil Wayne & 2 Chainz).mp3"
+May 13 11:40 : player: played "Chance the Rapper - Coloring Book/03 - Summer Friends (feat. Jeremih & Francis & The Lights).mp3"
+May 13 11:42 : player: played "Chance the Rapper - Coloring Book/04 - D.R.A.M. Sings Special.mp3"
+May 13 11:45 : player: played "Chance the Rapper - Coloring Book/05 - Blessings.mp3"
+May 13 11:50 : player: played "Chance the Rapper - Coloring Book/06 - Same Drugs.mp3"
+May 13 11:54 : player: played "Chance the Rapper - Coloring Book/07 - Mixtape (feat. Young Thug & Lil Yachty).mp3"
+May 13 11:58 : player: played "Chance the Rapper - Coloring Book/08 - Angels (feat. Saba).mp3"
+May 13 12:02 : player: played "Chance the Rapper - Coloring Book/09 - Juke Jam (feat. Justin Bieber & Towkio).mp3"
+May 13 12:04 : player: played "Chance the Rapper - Coloring Book/10 - All Night (feat. Knox Fortune).mp3"
+May 13 12:09 : player: played "Chance the Rapper - Coloring Book/11 - How Great (feat. Jay Electronica & My cousin Nicole).mp3"

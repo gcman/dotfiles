@@ -1,0 +1,9 @@
+#!/bin/sh
+dirs="music videos pictures books"
+for dir in $dirs
+do
+    rsync -auv --progress ~/$dir/ /media/book/$dir
+done
+
+rsync -auv --progress --exclude /.git ~/org/ /media/book/org
+rsync -auv --progress ~/Camera/ /media/book/pictures/Camera

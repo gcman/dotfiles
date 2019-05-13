@@ -5,6 +5,7 @@ adobe-source-sans-pro-fonts
 alacritty
 alsa-utils
 base-devel
+dialog
 dmenu
 evince
 firefox
@@ -30,6 +31,7 @@ redshift
 reflector
 rsync
 ripgrep
+shutter
 slock
 stow
 tlp
@@ -37,6 +39,7 @@ ttf-dejavu
 ttf-font-awesome
 ttf-hack
 ttf-symbola
+udisks2
 unzip
 xbindkeys
 xclip

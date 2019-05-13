@@ -7,8 +7,10 @@ install-packages:
   yay -S `cat packages.txt`
 
 link-config:
-  stow --restow `ls -d */`
+  stow --restow .
 
 enable-services:
+	systemctl --user enable mpd.service
+	systemctl --user start mpd.service
   systemctl --user enable checkmail.timer
   systemctl --user start checkmail.timer

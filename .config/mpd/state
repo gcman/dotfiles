@@ -1,7 +1,9 @@
 sw_volume: 100
 audio_device_state:1:mpd alsamixer-output
 audio_device_state:1:my_fifo
-state: stop
+state: play
+current: 146
+time: 4.075000
 random: 0
 repeat: 0
 single: 0
@@ -92,4 +94,69 @@ playlist_begin
 79:Panic! at the Disco - Pray For The Wicked [FLAC]/Panic_At_The_Disco-Pray_For_The_Wicked-CD-FLAC-2018-FiXIE/09-panic_at_the_disco-king_of_the_clouds.flac
 80:Panic! at the Disco - Pray For The Wicked [FLAC]/Panic_At_The_Disco-Pray_For_The_Wicked-CD-FLAC-2018-FiXIE/10-panic_at_the_disco-old_fashioned.flac
 81:Panic! at the Disco - Pray For The Wicked [FLAC]/Panic_At_The_Disco-Pray_For_The_Wicked-CD-FLAC-2018-FiXIE/11-panic_at_the_disco-dying_in_la.flac
+82:Billie Eilish - Dont Smile at Me (2017)/01 Copycat.mp3
+83:Billie Eilish - Dont Smile at Me (2017)/02 IDWBYA.mp3
+84:Billie Eilish - Dont Smile at Me (2017)/03 My Boy.mp3
+85:Billie Eilish - Dont Smile at Me (2017)/04 Watch.mp3
+86:Billie Eilish - Dont Smile at Me (2017)/05 Party Favor.mp3
+87:Billie Eilish - Dont Smile at Me (2017)/06 Bellyache.mp3
+88:Billie Eilish - Dont Smile at Me (2017)/07 Ocean Eyes.mp3
+89:Billie Eilish - Dont Smile at Me (2017)/08 Hostage.mp3
+90:Billie Eilish - Essentials (2018)/01 - Come Out And Play.mp3
+91:Billie Eilish - Essentials (2018)/02 - When The Party's Over.mp3
+92:Billie Eilish - Essentials (2018)/03 - Ocean Eyes.mp3
+93:Billie Eilish - Essentials (2018)/04 - Lovely (Feat. Khalid).mp3
+94:Billie Eilish - Essentials (2018)/05 - You Should See Me In A Crown.mp3
+95:Billie Eilish - Essentials (2018)/06 - Hostage.mp3
+96:Billie Eilish - Essentials (2018)/07 - Bellyache.mp3
+97:Billie Eilish - Essentials (2018)/08 - Six Feet Under.mp3
+98:Billie Eilish - Essentials (2018)/09 - &Burn (Feat. Vince Staples).mp3
+99:Billie Eilish - Essentials (2018)/10 - Idontwannabeyouanymore.mp3
+100:Billie Eilish - Essentials (2018)/11 - Bored.mp3
+101:Billie Eilish - Essentials (2018)/12 - My Boy.mp3
+102:Billie Eilish - Essentials (2018)/13 - Bitches Broken Hearts.mp3
+103:Billie Eilish - Essentials (2018)/14 - Party Favor.mp3
+104:Billie Eilish - Essentials (2018)/15 - Copycat.mp3
+105:Billie Eilish - Essentials (2018)/16 - Watch.mp3
+106:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/01. !!!!!!!.mp3
+107:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/02. bad guy.mp3
+108:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/03. xanny.mp3
+109:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/04. you should see me in a crown.mp3
+110:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/05. all the good girls go to hell.mp3
+111:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/06. wish you were gay.mp3
+112:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/07. when the party's over.mp3
+113:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/08. 8.mp3
+114:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/09. my strange addiction.mp3
+115:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/10. bury a friend.mp3
+116:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/11. ilomilo.mp3
+117:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/12. listen before i go.mp3
+118:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/13. i love you.mp3
+119:Billie Eilish - WHEN WE ALL FALL ASLEEP, WHERE DO WE GO (2019)/14. goodbye.mp3
+120:Chance The Rapper - Acid Rap/01 Good Ass Intro (ft. BJ The Chicago Kid, Lili K., Kiara Lanier, Peter Cottontale, Will for the O'mys, & JP Floyd for Kids These Days).mp3
+121:Chance The Rapper - Acid Rap/02 Pusha Man (ft. Nate Fox & Lili K.).mp3
+122:Chance The Rapper - Acid Rap/03 Cocoa Butter Kisses (ft. Vic Mensa & Twista).mp3
+123:Chance The Rapper - Acid Rap/04 Juice.mp3
+124:Chance The Rapper - Acid Rap/05 Lost (ft. Noname Gypsy).mp3
+125:Chance The Rapper - Acid Rap/06 Everybody's Something (ft. Saba & BJ The Chicago Kid) 1.mp3
+126:Chance The Rapper - Acid Rap/07 Interlude (That's Love).mp3
+127:Chance The Rapper - Acid Rap/08 Favorite Song (ft. Childish Gambino).mp3
+128:Chance The Rapper - Acid Rap/09 NaNa (ft. Action Bronson).mp3
+129:Chance The Rapper - Acid Rap/10 Smoke Again (ft. Ab-Soul).mp3
+130:Chance The Rapper - Acid Rap/11 Acid Rain.mp3
+131:Chance The Rapper - Acid Rap/12 Chain Smoker.mp3
+132:Chance The Rapper - Acid Rap/13 Everything's Good (Good Ass Outro).mp3
+133:Chance the Rapper - Coloring Book/01 - All We Got (feat. Kanye West & Chicago Children's Choir).mp3
+134:Chance the Rapper - Coloring Book/02 - No Problem (feat. Lil Wayne & 2 Chainz).mp3
+135:Chance the Rapper - Coloring Book/03 - Summer Friends (feat. Jeremih & Francis & The Lights).mp3
+136:Chance the Rapper - Coloring Book/04 - D.R.A.M. Sings Special.mp3
+137:Chance the Rapper - Coloring Book/05 - Blessings.mp3
+138:Chance the Rapper - Coloring Book/06 - Same Drugs.mp3
+139:Chance the Rapper - Coloring Book/07 - Mixtape (feat. Young Thug & Lil Yachty).mp3
+140:Chance the Rapper - Coloring Book/08 - Angels (feat. Saba).mp3
+141:Chance the Rapper - Coloring Book/09 - Juke Jam (feat. Justin Bieber & Towkio).mp3
+142:Chance the Rapper - Coloring Book/10 - All Night (feat. Knox Fortune).mp3
+143:Chance the Rapper - Coloring Book/11 - How Great (feat. Jay Electronica & My cousin Nicole).mp3
+144:Chance the Rapper - Coloring Book/12 - Smoke Break (feat. Future).mp3
+145:Chance the Rapper - Coloring Book/13 - Finish Line  Drown (feat. T-Pain, Kirk Franklin, Eryn Allen Kane & Noname).mp3
+146:Chance the Rapper - Coloring Book/14 - Blessings.mp3
 playlist_end

@@ -254,3 +254,8 @@ TSWLatexianTemp*
 # Cache files
 */cache/
 */*pycache*/
+
+*/mpd/database
+*/mpd/log
+*/mpd/playlists
+*/mpd/state

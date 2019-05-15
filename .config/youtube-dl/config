@@ -1,5 +1,5 @@
 -i
--o "~/Videos/YouTube/%(uploader)s [%(uploader_id)s]/%(upload_date)s - %(title)s - (%(duration)ss) [%(resolution)s] [%(id)s].%(ext)s"
+-o "~/videos/YouTube/%(uploader)s [%(uploader_id)s]/%(upload_date)s - %(title)s - (%(duration)ss) [%(resolution)s] [%(id)s].%(ext)s"
 
 # Archive Settings
 --download-archive ~/videos/YouTube/downloaded.txt

@@ -1,4 +1,5 @@
 Xft.dpi: 192
+URxvt.font: xft:Hack:size=10
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull

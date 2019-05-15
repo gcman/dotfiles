@@ -255,6 +255,7 @@ TSWLatexianTemp*
 */cache/
 */*pycache*/
 
+.config/mpd/log
 */mpd/database
 */mpd/log
 */mpd/playlists

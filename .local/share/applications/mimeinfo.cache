@@ -1,2 +1,3 @@
 [MIME Cache]
+x-scheme-handler/mailto=emacs-mail.desktop;
 x-scheme-handler/org-protocol=org-protocol.desktop;

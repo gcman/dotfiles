@@ -14,3 +14,5 @@ enable-services:
 	systemctl --user start mpd.service
   systemctl --user enable checkmail.timer
   systemctl --user start checkmail.timer
+	systemctl --user enable syncthing.service
+  systemctl --user start syncthing.service

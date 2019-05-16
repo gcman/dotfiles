@@ -37,6 +37,7 @@ ripgrep
 shutter
 slock
 stow
+syncthing
 tlp
 ttf-dejavu
 ttf-font-awesome

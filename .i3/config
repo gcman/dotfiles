@@ -1,7 +1,12 @@
 #custom stuff
-exec setxkbmap -option ctrl:nocaps
+exec redshift
+
 default_border normal 3
 hide_edge_borders both
+
+exec xset r rate 125 45
+
+exec setxkbmap -option ctrl:nocaps
 
 exec xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Natural Scrolling Enabled" 1
 exec xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Tapping Enabled" 1

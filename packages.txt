@@ -4,6 +4,8 @@ adobe-source-han-sans-jp-fonts
 adobe-source-sans-pro-fonts
 alacritty
 alsa-utils
+aria2c
+base
 base-devel
 dialog
 dmenu
@@ -32,8 +34,9 @@ powertop
 openssh
 redshift
 reflector
-rsync
 ripgrep
+rsync
+rtorrent
 shutter
 slock
 stow

@@ -6,6 +6,11 @@ if [ $STATE = 'full' ]
 then
     mbsync -Va
     loadmail
+    COUNT=`notmuch count tag:inbox and tag:unread`
+    if (( $COUNT > 0 ))
+       then
+           notify-send "$COUNT unread messages"
+    fi
     exit 0
 fi
 echo "No internet connection."

@@ -22,13 +22,14 @@ htop
 i3-gaps
 i3status
 libinput
+libnotify
 lightdm
 mbsync-git
 mpc
 mpd
 mpv
-network-manager-applet
 networkmanager
+notification-daemon
 pandoc
 powertop
 openssh

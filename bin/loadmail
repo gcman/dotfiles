@@ -1,3 +1,4 @@
+#!/bin/sh
 notmuch new
 
 # And note all mail sent from me

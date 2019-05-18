@@ -4,7 +4,7 @@ exec redshift
 default_border normal 3
 hide_edge_borders both
 
-exec xset r rate 125 45
+exec xset r rate 125 60
 
 exec setxkbmap -option ctrl:nocaps
 

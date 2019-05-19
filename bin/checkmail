@@ -5,7 +5,7 @@ STATE=`nmcli networking connectivity`
 if [ $STATE = 'full' ]
 then
     mbsync -Va
-    loadmail
+    /home/gautam/bin/loadmail
     COUNT=`notmuch count tag:inbox and tag:unread`
     if (( $COUNT > 0 ))
        then

@@ -3,4 +3,4 @@ Description=Mailbox synchronization service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/checkmail
+ExecStart=/home/gautam/bin/checkmail

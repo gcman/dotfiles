@@ -7,10 +7,15 @@ then
     mbsync -Va
     /home/gautam/bin/loadmail
     COUNT=`notmuch count tag:inbox and tag:unread`
-    if (( $COUNT > 0 ))
-    then
+    if (( $COUNT > 0 )); then
         emacsclient --eval "(notmuch-refresh-all-buffers)"
-        notify-send "$COUNT unread messages"
+        MESSAGE="$COUNT unread message"
+        if (( $COUNT > 1 )); then
+            MESSAGE="$MESSAGE s"
+        else
+            MESSAGE="$MESSAGE $(cut -d ';' -f1 <<< $(cut -d ']' -f2 <<< `notmuch search tag:inbox and tag:unread`) | xargs)"
+        fi
+        notify-send "$MESSAGE"
     fi
     exit 0
 fi

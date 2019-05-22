@@ -8,8 +8,9 @@ then
     /home/gautam/bin/loadmail
     COUNT=`notmuch count tag:inbox and tag:unread`
     if (( $COUNT > 0 ))
-       then
-           notify-send "$COUNT unread messages"
+    then
+        emacsclient --eval "(notmuch-refresh-all-buffers)"
+        notify-send "$COUNT unread messages"
     fi
     exit 0
 fi

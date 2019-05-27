@@ -1,8 +1,9 @@
 #custom stuff
+exec automount
 exec dunst
 exec redshift
 
-default_border normal 1
+default_border none
 hide_edge_borders both
 
 exec xset r rate 125 60
@@ -43,6 +44,11 @@ workspace $ws5 output DP-1 primary
 focus_follows_mouse no
 
 bindsym $mod+shift+s exec $HOME/.i3/i3-display-swap.sh
+
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPlay exec mpc toggle
+
 
 #default stuff
 

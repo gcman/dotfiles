@@ -1,4 +1,0 @@
-#!/bin/sh
-MONITOR="DP-1"
-xrandr --output $MONITOR --auto
-xrandr --output $MONITOR --right-of eDP-1 --scale 2x2

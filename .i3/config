@@ -1,5 +1,4 @@
 #custom stuff
-exec automount
 exec dunst
 exec redshift
 
@@ -7,7 +6,6 @@ default_border none
 hide_edge_borders both
 
 exec xset r rate 125 60
-
 exec setxkbmap -option ctrl:nocaps
 
 exec xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Natural Scrolling Enabled" 1
@@ -30,7 +28,9 @@ mode "$mode_monitors" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-bindsym $mod+p mode "$mode_monitors"
+bindsym $mod+p exec dock
+bindsym $mod+shift+p mode "$mode_monitors"
+
 
 assign [class="^Emacs"] → $ws1
 assign [class="^Firefox$"] → $ws2

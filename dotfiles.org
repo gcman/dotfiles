@@ -31,6 +31,7 @@ Setup all our =systemd= services.
 - mpd.service
 - checkmail.timer
 - syncthing.service
+- automount.service
 We a quick script to turn these services into the appropriate =systemd=
 commands.
 #+NAME: systemd-commands
@@ -56,6 +57,24 @@ ExecStartPost=/usr/bin/sleep 1
 
 [Install]
 WantedBy=sleep.target
+#+END_SRC
+* Watch for HDMI monitor
+This [[http://jasonwryan.com/blog/2014/01/20/udev/][blog post]] was integral in getting this working.
+#+BEGIN_SRC conf :tangle /sudo::/etc/udev/rules.d/98-monitor-hotplug.rules
+ACTION=="change", KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/gautam/.Xauthority", RUN+="/bin/bash /home/gautam/bin/dock"
+#+END_SRC
+Reload the =udev= rules.
+#+BEGIN_SRC sh :results silent :dir /sudo::
+udevadm control --reload-rules
+#+END_SRC
+* Mount USB drives to =/media=
+The default is =/run/media/$user=.
+#+BEGIN_SRC conf :tangle /sudo::/etc/udev/rules.d/99-udisks2.rules
+ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"
+#+END_SRC
+Clean stale mountpoints on boot.
+#+BEGIN_SRC conf :tangle /sudo::/etc/tmpfiles.d/media.conf
+D /media 0755 root root 0 -
 #+END_SRC
 * Options
 # Local variables:

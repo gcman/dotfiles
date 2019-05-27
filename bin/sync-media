@@ -1,6 +1,6 @@
 #!/bin/sh
 dirs="music videos pictures books"
-drive="/run/media/gautam/501b6655-ac04-4e1e-b921-67e8947b2d84"
+drive="/media/501b6655-ac04-4e1e-b921-67e8947b2d84"
 for dir in $dirs
 do
     rsync -auv --progress ~/$dir/ $drive/$dir

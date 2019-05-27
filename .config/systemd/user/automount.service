@@ -1,0 +1,10 @@
+[Unit]
+Description=Automount drives
+
+[Service]
+Type=simple
+RemainAfterExit=no
+ExecStart=/home/gautam/bin/automount
+
+[Install]
+WantedBy=default.target

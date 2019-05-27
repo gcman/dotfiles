@@ -11,7 +11,7 @@ then
         emacsclient --eval "(notmuch-refresh-all-buffers)"
         MESSAGE="$COUNT unread message"
         if (( $COUNT > 1 )); then
-            MESSAGE="$MESSAGE s"
+            MESSAGE="$MESSAGEs"
         else
             MESSAGE="$MESSAGE $(cut -d ';' -f1 <<< $(cut -d ']' -f2 <<< `notmuch search tag:inbox and tag:unread`) | xargs)"
         fi

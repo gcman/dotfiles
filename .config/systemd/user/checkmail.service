@@ -4,3 +4,6 @@ Description=Mailbox synchronization service
 [Service]
 Type=oneshot
 ExecStart=/home/gautam/bin/checkmail
+
+[Install]
+WantedBy=default.target

@@ -1,7 +1,12 @@
 default: install-yay install-packages link-config enable-services
 
 install-yay:
-  ./install-yay.sh
+  sudo pacman -Sy git
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg -si
+  cd ..
+  rm -rf yay
 
 install-packages:
   yay -S `cat packages.txt`
@@ -10,9 +15,8 @@ link-config:
   stow --restow .
 
 enable-services:
-	systemctl --user enable mpd.service
-	systemctl --user start mpd.service
-  systemctl --user enable checkmail.timer
-  systemctl --user start checkmail.timer
-	systemctl --user enable syncthing.service
-  systemctl --user start syncthing.service
+	for service in $services; do
+	    for action in "enable" "start"; do
+	        systemctl --user $action $service
+	    done
+	done

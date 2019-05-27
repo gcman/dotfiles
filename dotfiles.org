@@ -1,0 +1,63 @@
+* Makefile
+Running This file will setup a new system.
+#+BEGIN_SRC makefile-gmake :noweb yes :tangle Makefile
+default: install-yay install-packages link-config enable-services
+
+install-yay:
+  <<install-yay>>
+
+install-packages:
+  yay -S `cat packages.txt`
+
+link-config:
+  stow --restow .
+
+enable-services:
+	<<enable-services>>
+#+END_SRC
+** Install =yay=
+#+BEGIN_SRC makefile-gmake :noweb-ref install-yay
+sudo pacman -Sy git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+rm -rf yay
+#+END_SRC
+** Enable Services
+#+END_SRC
+Setup all our =systemd= services.
+#+NAME: systemd-services
+- mpd.service
+- checkmail.timer
+- syncthing.service
+We a quick script to turn these services into the appropriate =systemd=
+commands.
+#+NAME: systemd-commands
+#+BEGIN_SRC sh :noweb-ref enable-services :var services=systemd-services
+for service in $services; do
+    for action in "enable" "start"; do
+        systemctl --user $action $service
+    done
+done
+#+END_SRC
+* Lock on suspend
+#+BEGIN_SRC systemd :tangle /sudo::/etc/systemd/system/suspend@gautam.service
+[Unit]
+Description=User suspend actions
+Before=sleep.target
+
+[Service]
+User=%I
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/slock
+ExecStartPost=/usr/bin/sleep 1
+
+[Install]
+WantedBy=sleep.target
+#+END_SRC
+* Options
+# Local variables:
+# after-save-hook: org-babel-tangle
+# end:

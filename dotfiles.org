@@ -42,7 +42,8 @@ for service in $services; do
     done
 done
 #+END_SRC
-* Lock on suspend
+* Suspend
+Lock the screen on suspend.
 #+BEGIN_SRC systemd :tangle /sudo::/etc/systemd/system/suspend@gautam.service
 [Unit]
 Description=User suspend actions
@@ -58,6 +59,20 @@ ExecStartPost=/usr/bin/sleep 1
 [Install]
 WantedBy=sleep.target
 #+END_SRC
+Dock to the appropriate state (external monitor or just laptop monitor) after resuming.
+#+BEGIN_SRC systemd :tangle /sudo::/etc/systemd/system/resume@gautam.service
+[Unit]
+Description=User suspend actions
+After=sleep.target
+
+[Service]
+User=%I
+Type=simple
+ExecStart=/home/%I/bin/dock
+
+[Install]
+WantedBy=sleep.target
+#+END_SRC
 * Watch for HDMI monitor
 This [[http://jasonwryan.com/blog/2014/01/20/udev/][blog post]] was integral in getting this working.
 #+BEGIN_SRC conf :tangle /sudo::/etc/udev/rules.d/98-monitor-hotplug.rules
@@ -67,7 +82,7 @@ Reload the =udev= rules.
 #+BEGIN_SRC sh :results silent :dir /sudo::
 udevadm control --reload-rules
 #+END_SRC
-* Mount USB drives to =/media=
+*  Mount USB drives to =/media=
 The default is =/run/media/$user=.
 #+BEGIN_SRC conf :tangle /sudo::/etc/udev/rules.d/99-udisks2.rules
 ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"

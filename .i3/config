@@ -1,4 +1,6 @@
 #custom stuff
+exec $HOME/bin/dock
+
 exec dunst
 exec redshift
 

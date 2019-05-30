@@ -7,11 +7,11 @@ exec redshift
 default_border none
 hide_edge_borders both
 
-exec xset r rate 125 60
-exec setxkbmap -option ctrl:nocaps
+exec_always xset r rate 125 60
+exec_always setxkbmap -option ctrl:nocaps
 
-exec xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Natural Scrolling Enabled" 1
-exec xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Tapping Enabled" 1
+exec_always xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Natural Scrolling Enabled" 1
+exec_always xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Tapping Enabled" 1
 
 bindsym XF86AudioMute exec amixer sset 'Master' toggle
 bindsym XF86AudioLowerVolume exec amixer -n sset 'Master' 5%-

@@ -4,6 +4,8 @@ exec $HOME/bin/dock
 exec dunst
 exec redshift
 
+exec emacs
+
 default_border none
 hide_edge_borders both
 
@@ -51,6 +53,24 @@ bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPlay exec mpc toggle
 
+# Shutdown menu
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+Delete mode "$mode_system"
 
 #default stuff
 
@@ -214,21 +234,3 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3status --config=~/.i3/.i3status.conf
 }
-
-# Shutdown menu
-
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+Pause mode "$mode_system"

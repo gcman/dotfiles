@@ -61,4 +61,5 @@ xorg-xmodmap
 xorg-xrandr
 xorg-xset
 youtube-dl
+zip
 zotero

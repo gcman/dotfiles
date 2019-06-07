@@ -8,3 +8,9 @@ done
 
 rsync -auv --progress --exclude /.git ~/org/ $drive/org
 rsync -auv --progress ~/Camera/ $drive/pictures/Camera
+
+for f in ~/videos/YouTube/*; do
+  if [ -d "$f" ]; then
+     rm -rf "$f"
+  fi
+done

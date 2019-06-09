@@ -21,6 +21,7 @@ hunspell
 htop
 i3-gaps
 i3status
+inkscape
 libinput
 libsecret
 mbsync-git
@@ -53,6 +54,7 @@ udisks2
 unzip
 xbindkeys
 xclip
+xdotool
 xf86-input-libinput
 xorg-server
 xorg-xinit

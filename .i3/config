@@ -50,6 +50,7 @@ bindsym $mod+shift+s exec $HOME/.i3/i3-display-swap.sh
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPlay exec mpc toggle
+bindsym Pause exec mpc toggle
 
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
 

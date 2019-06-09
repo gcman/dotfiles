@@ -58,8 +58,10 @@ xorg-server
 xorg-xinit
 xorg-xinput
 xorg-xmodmap
+xorg-xprop
 xorg-xrandr
 xorg-xset
+xorg-xwindow
 youtube-dl
 zip
 zotero

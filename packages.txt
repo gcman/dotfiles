@@ -30,6 +30,7 @@ mpd
 mpv
 networkmanager
 pandoc
+pdf2svg
 powertop
 openssh
 redshift

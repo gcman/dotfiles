@@ -7,12 +7,12 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-if [ -d ~/bin ]; then
-    PATH=$PATH:~/bin
-fi
-
 if [ -d ~/.local/bin ]; then
     PATH=$PATH:~/.local/bin
+fi
+
+if [ -d ~/bin ]; then
+    PATH=$PATH:~/bin
 fi
 
 HISTSIZE=-1

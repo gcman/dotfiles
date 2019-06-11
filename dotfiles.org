@@ -13,7 +13,7 @@ link-config:
   stow --restow .
 
 enable-services:
-	<<enable-services>>
+	<<systemd-commands()>>
 #+END_SRC
 ** Install =yay=
 #+BEGIN_SRC makefile-gmake :noweb-ref install-yay
@@ -25,7 +25,6 @@ cd ..
 rm -rf yay
 #+END_SRC
 ** Enable Services
-#+END_SRC
 Setup all our =systemd= services.
 #+NAME: systemd-services
 - mpd.service
@@ -35,14 +34,15 @@ Setup all our =systemd= services.
 - inkscapefigures.service
 - inkscapewatch.service
 We a quick script to turn these services into the appropriate =systemd=
-commands.
+commands. It's a little hacky, but I write some Python to output valid bash code.
 #+NAME: systemd-commands
-#+BEGIN_SRC sh :noweb-ref enable-services :var services=systemd-services
-for service in $services; do
+#+BEGIN_SRC python :results output silent :var services=systemd-services
+out = r"""for service in {}; do
     for action in "enable" "start"; do
         systemctl --user $action $service
     done
-done
+done""".format(" ".join(["'{}'".format(x[0]) for x in services]))
+print(out)
 #+END_SRC
 * Suspend
 Lock the screen on suspend.
@@ -98,4 +98,4 @@ D /media 0755 root root 0 -
 # after-save-hook: org-babel-tangle
 # end:
 
-#  LocalWords:  inkscapefigures inkscapewatch
+#  LocalWords:  inkscapefigures inkscapewatch syncthing automount

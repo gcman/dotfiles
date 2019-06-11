@@ -15,7 +15,7 @@ link-config:
   stow --restow .
 
 enable-services:
-	for service in $services; do
+	for service in 'mpd.service' 'checkmail.timer' 'syncthing.service' 'automount.service' 'inkscapefigures.service' 'inkscapewatch.service'; do
 	    for action in "enable" "start"; do
 	        systemctl --user $action $service
 	    done

@@ -4,19 +4,19 @@ Running This file will setup a new system.
 default: install-yay install-packages link-config enable-services
 
 install-yay:
-  <<install-yay>>
+		./install-yay.sh
 
 install-packages:
-  yay -S `cat packages.txt`
+		yay -S `cat packages.txt`
 
 link-config:
-  stow --restow .
+		stow --restow .
 
 enable-services:
-	<<systemd-commands()>>
+		./enable-services.sh
 #+END_SRC
 ** Install =yay=
-#+BEGIN_SRC makefile-gmake :noweb-ref install-yay
+#+BEGIN_SRC sh :tangle install-yay.sh :shebang #!/bin/sh
 sudo pacman -Sy git
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -34,15 +34,14 @@ Setup all our =systemd= services.
 - inkscapefigures.service
 - inkscapewatch.service
 We a quick script to turn these services into the appropriate =systemd=
-commands. It's a little hacky, but I write some Python to output valid bash code.
+commands.
 #+NAME: systemd-commands
-#+BEGIN_SRC python :results output silent :var services=systemd-services
-out = r"""for service in {}; do
+#+BEGIN_SRC sh :tangle enable-services.sh :shebang #!/bin/sh :var services=systemd-services
+for service in $services; do
     for action in "enable" "start"; do
         systemctl --user $action $service
     done
-done""".format(" ".join(["'{}'".format(x[0]) for x in services]))
-print(out)
+done
 #+END_SRC
 * Suspend
 Lock the screen on suspend.

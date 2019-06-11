@@ -2,5 +2,9 @@
 Description=Watch for new Inkscape files.
 
 [Service]
-Type=oneshot
+Type=simple
+RemainAfterExit=no
 ExecStart=/home/gautam/bin/inkscape-figures watch
+
+[Install]
+WantedBy=default.target

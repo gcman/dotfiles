@@ -7,6 +7,7 @@ alsa-utils
 aria2c
 base
 base-devel
+bc
 biber
 curl
 dialog

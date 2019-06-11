@@ -2,6 +2,9 @@ Makefile
 dotfiles.org
 packages.txt
 
+install-yay.sh
+enable-services.sh
+
 git
 \.git
 \.gitignore

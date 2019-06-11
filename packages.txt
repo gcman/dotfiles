@@ -10,6 +10,7 @@ base-devel
 biber
 curl
 dialog
+dosfstools
 emacs
 emacs-pdf-tools-git
 evince

@@ -17,6 +17,7 @@ enable-services:
 #+END_SRC
 ** Install =yay=
 #+BEGIN_SRC sh :tangle install-yay.sh :shebang #!/bin/sh
+cd ~
 sudo pacman -Sy git
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -83,7 +84,7 @@ Reload the =udev= rules.
 #+BEGIN_SRC sh :results silent :dir /sudo::
 udevadm control --reload-rules
 #+END_SRC
-*  Mount USB drives to =/media=
+* Mount USB drives to =/media=
 The default is =/run/media/$user=.
 #+BEGIN_SRC conf :tangle /sudo::/etc/udev/rules.d/99-udisks2.rules
 ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{UDISKS_FILESYSTEM_SHARED}="1"

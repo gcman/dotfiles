@@ -1,4 +1,7 @@
 Makefile
-install-yay.sh
 dotfiles.org
 packages.txt
+
+git
+\.git
+\.gitignore

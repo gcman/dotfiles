@@ -1,0 +1,6 @@
+[Unit]
+Description=Intercept keypresses in Inkscape.
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python /home/gautam/inkscape-shortcut-manager/main.py

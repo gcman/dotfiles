@@ -1,0 +1,6 @@
+[Unit]
+Description=Watch for new Inkscape files.
+
+[Service]
+Type=oneshot
+ExecStart=/home/gautam/bin/inkscape-figures watch

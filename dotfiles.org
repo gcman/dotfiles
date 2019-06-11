@@ -32,6 +32,8 @@ Setup all our =systemd= services.
 - checkmail.timer
 - syncthing.service
 - automount.service
+- inkscapefigures.service
+- inkscapewatch.service
 We a quick script to turn these services into the appropriate =systemd=
 commands.
 #+NAME: systemd-commands
@@ -95,3 +97,5 @@ D /media 0755 root root 0 -
 # Local variables:
 # after-save-hook: org-babel-tangle
 # end:
+
+#  LocalWords:  inkscapefigures inkscapewatch

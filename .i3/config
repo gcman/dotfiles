@@ -37,6 +37,8 @@ bindsym $mod+shift+p mode "$mode_monitors"
 
 assign [class="^Firefox$"] → $ws2
 assign [class="^mpv$"] → output DP-1
+assign [class="^Inkscape$"] → output DP-1
+for_window [class="^Inkscape$"] fullscreen
 
 workspace $ws1 output primary
 workspace $ws2 output DP-1 primary

@@ -50,10 +50,10 @@ focus_follows_mouse no
 
 bindsym $mod+shift+s exec $HOME/.i3/i3-display-swap.sh
 
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPlay exec mpc toggle
-bindsym Pause exec mpc toggle
+bindsym XF86AudioPrev exec "emacsclient -e \"(emms-previous)\" || mpc prev"
+bindsym XF86AudioNext exec "emacsclient -e \"(emms-nest)\" || mpc next"
+bindsym XF86AudioPlay exec "emacsclient -e \"(emms-pause)\" || mpc toggle"
+bindsym Pause exec "emacsclient -e \"(emms-pause)\" || mpc toggle"
 
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
 

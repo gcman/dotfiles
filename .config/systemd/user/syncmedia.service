@@ -1,0 +1,6 @@
+[Unit]
+Description=Sync media service
+
+[Service]
+Type=oneshot
+ExecStart=/home/gautam/bin/syncmedia

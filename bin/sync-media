@@ -1,16 +1,20 @@
 #!/bin/sh
 dirs="music videos pictures books Zotero .emacs.d mail"
 drive="/media/501b6655-ac04-4e1e-b921-67e8947b2d84"
-for dir in $dirs
-do
-    rsync -auv --progress ~/$dir/ $drive/$dir
-done
+if [ -d "$drive" ]; then
+    for dir in $dirs
+    do
+        rsync -auv --progress ~/$dir/ $drive/$dir
+    done
 
-rsync -auv --progress --exclude /.git ~/org/ $drive/org
-rsync -auv --progress ~/Camera/ $drive/pictures/Camera
+    rsync -auv --progress --exclude /.git ~/org/ $drive/org
+    rsync -auv --progress ~/Camera/ $drive/pictures/Camera
 
-for f in ~/videos/YouTube/*; do
-  if [ -d "$f" ]; then
-     rm -rf "$f"
-  fi
-done
+    for f in ~/videos/YouTube/*; do
+        if [ -d "$f" ]; then
+            rm -rf "$f"
+        fi
+    done
+else
+    echo "Drive location not found!"
+fi

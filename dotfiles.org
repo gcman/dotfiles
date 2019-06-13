@@ -29,11 +29,12 @@ rm -rf yay
 Setup all our =systemd= services.
 #+NAME: systemd-services
 - mpd.service
-- checkmail.timer
 - syncthing.service
 - automount.service
 - inkscapefigures.service
 - inkscapewatch.service
+- checkmail.timer
+- syncmedia.timer
 We a quick script to turn these services into the appropriate =systemd=
 commands.
 #+NAME: systemd-commands
@@ -114,4 +115,4 @@ X-Desktop-File-Install-Version=0.24
 # after-save-hook: org-babel-tangle
 # end:
 
-#  LocalWords:  inkscapefigures inkscapewatch syncthing automount
+#  LocalWords:  inkscapefigures inkscapewatch syncthing automount syncmedia

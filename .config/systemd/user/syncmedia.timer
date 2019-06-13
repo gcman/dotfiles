@@ -1,0 +1,10 @@
+[Unit]
+Description=Sync media onto external drive
+
+[Timer]
+OnBootSec=2m
+OnUnitActiveSec=60m
+Unit=syncmedia.service
+
+[Install]
+WantedBy=timers.target

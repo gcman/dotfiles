@@ -93,6 +93,22 @@ Clean stale mountpoints on boot.
 #+BEGIN_SRC conf :tangle /sudo::/etc/tmpfiles.d/media.conf
 D /media 0755 root root 0 -
 #+END_SRC
+* Manage =mailto= links with Emacs
+I use =notmuch=, which comes with a desktop entry to open email links in Emacs. I
+just want it to use =emacsclient=. The =Exec= line is the one I changed.
+#+BEGIN_SRC conf :tangle /sudo::/usr/share/applications/notmuch-emacs-mua.desktop
+[Desktop Entry]
+Name=Notmuch (emacs interface)
+GenericName=Email Client
+Comment=Emacs based email client
+Exec=notmuch-emacs-mua --hello --client --auto-daemon %u
+MimeType=x-scheme-handler/mailto;
+Icon=emblem-mail
+Terminal=false
+Type=Application
+Categories=Network;Email;
+X-Desktop-File-Install-Version=0.24
+#+END_SRC
 * Options
 # Local variables:
 # after-save-hook: org-babel-tangle

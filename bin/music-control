@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ "$1" == "prev" ]; then
+    emacsclient -e "(emms-previous)" || mpc prev
+elif [ "$1" == "next" ]; then
+    emacsclient -e "(emms-nest)" || mpc next
+elif [ "$1" == "toggle" ]; then
+     emacsclient -e "(emms-pause)" || mpc toggle
+else
+    echo "Not valid!"
+fi

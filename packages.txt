@@ -36,6 +36,7 @@ pdf2svg
 pdftk
 powertop
 openssh
+qutebrowser
 redshift
 reflector
 ripgrep

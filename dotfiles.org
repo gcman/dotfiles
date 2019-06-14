@@ -102,7 +102,7 @@ just want it to use =emacsclient=. The =Exec= line is the one I changed.
 Name=Notmuch (emacs interface)
 GenericName=Email Client
 Comment=Emacs based email client
-Exec=notmuch-emacs-mua --hello --client --auto-daemon %u
+Exec=notmuch-emacs-mua --hello --client %u
 MimeType=x-scheme-handler/mailto;
 Icon=emblem-mail
 Terminal=false

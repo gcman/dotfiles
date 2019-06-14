@@ -105,6 +105,8 @@ assign [class="^Inkscape$"] → output DP-1
 
 for_window [class="^Inkscape$"] fullscreen
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
+for_window [class="^Emacs$" title="^org-capture-pop-frame$"] enable focus
+assign [class="^Emacs$" title="^org-capture-pop-frame$"] → output DP-1
 
 focus_follows_mouse no
 

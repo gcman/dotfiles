@@ -5,7 +5,6 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
 
 if [ -d ~/.local/bin ]; then
     PATH=$PATH:~/.local/bin

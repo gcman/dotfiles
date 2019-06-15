@@ -4,14 +4,15 @@ STATE=`nmcli networking connectivity`
 
 if [ $STATE = 'full' ]
 then
-    mbsync -Va
+    mbsync -a
     /home/gautam/bin/loadmail
     COUNT=`notmuch count tag:inbox and tag:unread`
     if (( $COUNT > 0 )); then
+        echo "$COUNT"
         emacsclient --eval "(notmuch-refresh-all-buffers)"
         MESSAGE="$COUNT unread message"
         if (( $COUNT > 1 )); then
-            MESSAGE="$MESSAGEs"
+            MESSAGE="${MESSAGE}s"
         else
             MESSAGE="$MESSAGE $(cut -d ';' -f1 <<< $(cut -d ']' -f2 <<< `notmuch search tag:inbox and tag:unread`) | xargs)"
         fi

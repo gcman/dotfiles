@@ -35,6 +35,7 @@ pandoc
 pdf2svg
 pdftk
 powertop
+python-tldextract
 openssh
 qutebrowser
 redshift

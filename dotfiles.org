@@ -110,6 +110,13 @@ Type=Application
 Categories=Network;Email;
 X-Desktop-File-Install-Version=0.24
 #+END_SRC
+* Use =dunst= over =notification-daemon=
+This is a simple replacement in =org.freedesktop.Notifications=.
+#+BEGIN_SRC conf :tangle /sudo::/usr/share/dbus-1/services/org.freedesktop.Notifications.service
+[D-BUS Service]
+Name=org.freedesktop.Notifications
+Exec=/usr/bin/dunst
+#+END_SRC
 * Options
 # Local variables:
 # after-save-hook: org-babel-tangle

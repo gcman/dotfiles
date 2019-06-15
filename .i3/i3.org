@@ -5,8 +5,11 @@ checks if I have an external monitor plugged in and uses =xrandr= accordingly.
 #+BEGIN_SRC conf
 exec --no-startup-id dock
 #+END_SRC
-Then I make t
-he screen emit a bearable amount of blue light.
+Then I start up Emacs.
+#+BEGIN_SRC conf
+exec emacs
+#+END_SRC
+Then I make the screen emit a bearable amount of blue light.
 #+BEGIN_SRC conf
 exec redshift
 #+END_SRC

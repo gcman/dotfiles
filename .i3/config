@@ -1,5 +1,7 @@
 exec --no-startup-id dock
 
+exec emacs
+
 exec redshift
 
 exec_always --no-startup-id xset r rate 125 60

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Arbitrary but unique message id
+msgId="991050"
+
+# Change the volume using alsa(might differ if you use pulseaudio)
+
+/usr/bin/light "$@" > /dev/null
+
+brightness="$(light)"
+
+dunstify -a "change-brightness" -i audio-volume-high -r "$msgId" \
+             "Brightness: ${brightness}%" "$(getProgressString 15 "#" "-" $brightness)"

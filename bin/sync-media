@@ -1,20 +1,30 @@
 #!/bin/sh
-dirs="music videos pictures books Zotero .emacs.d mail"
+dirs="music videos pictures books"
 drive="/media/501b6655-ac04-4e1e-b921-67e8947b2d84"
+exclude_file=".cache/rsync-exclude.txt"
+excludes="$dirs .local/share/Trash dotfiles school Camera org"
 if [ -d "$drive" ]; then
-    for dir in $dirs
+    :> ~/$exclude_file
+    for dir in $excludes
     do
-        rsync -auv --progress ~/$dir/ $drive/$dir
+        echo "$dir" >> ~/$exclude_file
     done
 
-    rsync -auv --progress --exclude /.git ~/org/ $drive/org
-    rsync -auv --progress ~/Camera/ $drive/pictures/Camera
+    for dir in $dirs
+    do
+        rsync -hauv --progress ~/$dir/ $drive/$dir
+    done
+
+    rsync -hauv --progress --exclude /.git ~/org/ $drive/org
+    rsync -hauv --progress ~/Camera/ $drive/pictures/Camera
 
     for f in ~/videos/YouTube/*; do
         if [ -d "$f" ]; then
             rm -rf "$f"
         fi
     done
+
+    rsync -hauv --progress --exclude-from ".cache/rsync-exclude.txt" ~/ $drive/home
 else
     echo "Drive location not found!"
 fi

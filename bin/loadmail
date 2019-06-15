@@ -2,4 +2,4 @@
 notmuch new
 
 # And note all mail sent from me
-notmuch tag -new -inbox  +sent from:gmanohar@stanford.edu and not tag:sent
+notmuch tag -new -inbox +sent from:gmanohar@stanford.edu and not tag:sent

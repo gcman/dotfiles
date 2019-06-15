@@ -177,6 +177,8 @@ c.url.start_pages = 'https://duckduckgo.com'
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'rr': 'https://reddit.com/r/{}',
                        "osm": "https://www.openstreetmap.org/search?query={}",
+                       'aw': 'https://wiki.archlinux.org/?search={}',
+                       'w': 'https://en.wikipedia.org/?search={}',
 }
 
 # Org Capture

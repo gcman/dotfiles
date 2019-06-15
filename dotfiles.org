@@ -28,11 +28,11 @@ rm -rf yay
 ** Enable Services
 Setup all our =systemd= services.
 #+NAME: systemd-services
-- mpd.service
-- syncthing.service
-- automount.service
-- inkscapefigures.service
-- inkscapewatch.service
+- mpd
+- syncthing
+- automount
+- inkscapefigures
+- inkscapewatch
 - checkmail.timer
 - syncmedia.timer
 We a quick script to turn these services into the appropriate =systemd=

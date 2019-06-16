@@ -90,7 +90,7 @@ Sometimes I need to manually dock or undock.
 #+BEGIN_SRC conf
 set $mode_monitors Monitor setup: (0) laptop only, (1) external
 mode "$mode_monitors" {
-  bindsym 0 exec --no-startup-id "xrandr --output DP-1 --off", mode "default"
+  bindsym 0 exec --no-startup-id "xrandr --output DP-1 DP1 --off", mode "default"
   bindsym 1 exec --no-startup-id "/home/gautam/bin/dock", mode "default"
 
   # back to normal: Enter or Escape
@@ -128,23 +128,23 @@ done
 Assign workspaces to certain displays.
 #+BEGIN_SRC conf
 workspace $ws1 output primary
-workspace $ws2 output DP-1 primary
-workspace $ws3 output DP-1 primary
-workspace $ws4 output DP-1 primary
-workspace $ws5 output DP-1 primary
+workspace $ws2 output DP-1 DP1 primary
+workspace $ws3 output DP-1 DP1 primary
+workspace $ws4 output DP-1 DP1 primary
+workspace $ws5 output DP-1 DP1 primary
 #+END_SRC
 Assign windows to certain workspaces.
 #+BEGIN_SRC conf
 assign [class="^Firefox$"] → $ws2
-assign [class="^mpv$"] → output DP-1
-assign [class="^Inkscape$"] → output DP-1
+assign [class="^mpv$"] → output DP-1 DP1
+assign [class="^Inkscape$"] → output DP-1 DP1
 #+END_SRC
 Assign certain properties to windows.
 #+BEGIN_SRC conf
 for_window [class="^Inkscape$"] fullscreen
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
 for_window [class="^Emacs$" title="^org-capture-pop-frame$"] enable focus
-assign [class="^Emacs$" title="^org-capture-pop-frame$"] → output DP-1
+assign [class="^Emacs$" title="^org-capture-pop-frame$"] → output DP-1 DP1
 #+END_SRC
 I really like having a window open on one monitor and using the keyboard to
 control stuff on another monitor.

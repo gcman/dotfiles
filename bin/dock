@@ -3,11 +3,11 @@
 xset r rate 125 60
 setxkbmap -option ctrl:nocaps
 
-MONITOR="DP-1"
-STATUS=`cat /sys/class/drm/card0/card0-$MONITOR/status`
+MONITOR="DP1"
+STATUS=`cat /sys/class/drm/card0/card0-DP-1/status`
 
 function connect(){
-    xrandr --output $MONITOR --auto --right-of eDP-1 --scale 2x2
+    xrandr --output $MONITOR --auto --right-of eDP1 --scale 2x2
 }
 
 function disconnect(){

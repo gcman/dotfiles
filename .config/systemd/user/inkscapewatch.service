@@ -4,7 +4,7 @@ Description=Watch for new Inkscape files.
 [Service]
 Type=simple
 RemainAfterExit=no
-ExecStart=/home/gautam/bin/inkscape-figures watch
+ExecStart=/home/gautam/.local/bin/inkscape-figures watch --daemon
 
 [Install]
 WantedBy=default.target

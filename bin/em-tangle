@@ -1,0 +1,10 @@
+#!/bin/sh
+# tangle files with org-mode
+#
+emacs --batch --eval "(progn
+      (require 'ob-tangle)
+      (require 'ob-shell)
+      (require 'ob-python)
+      (setq org-confirm-babel-evaluate nil)
+      (dolist (file command-line-args-left)
+        (org-babel-tangle-file file)))" "$@"

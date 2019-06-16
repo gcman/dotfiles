@@ -37,8 +37,10 @@ pandoc
 pdf2svg
 pdftk
 powertop
+python
+python-pip
 python-tldextract
-qutebrowser
+qutebrowser-git
 redshift
 reflector
 ripgrep
@@ -51,7 +53,9 @@ shutter
 slock
 stow
 syncthing
-texlive-most
+texlive-core
+texlive-lang
+texlive-localmanager-git
 tlp
 ttf-dejavu
 ttf-font-awesome

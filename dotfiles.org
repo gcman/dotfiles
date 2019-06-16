@@ -1,19 +1,23 @@
 * Makefile
 Running This file will setup a new system.
 #+BEGIN_SRC makefile-gmake :noweb yes :tangle Makefile
-default: install-yay install-packages link-config enable-services
-
 install-yay:
 		./install-yay.sh
 
 install-packages:
+		yay -S reflector
+		sudo reflector --verbose --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
 		yay -S `cat packages.txt`
 
 link-config:
 		stow --restow .
 
+tangle:
+		find . -type f -name "*.org" -exec em-tangle {} \;
+
 enable-services:
 		./enable-services.sh
+		<<system-services()>>
 #+END_SRC
 ** Install =yay=
 #+BEGIN_SRC sh :tangle install-yay.sh :shebang #!/bin/sh
@@ -43,6 +47,14 @@ for service in $services; do
     for action in "enable" "start"; do
         systemctl --user $action $service
     done
+done
+#+END_SRC
+** Python Packages
+#+NAME: python-packages
+- inkscape-figures
+#+BEGIN_SRC sh :var packages=python-packages
+for package in $packages; do
+    pip install --user $package
 done
 #+END_SRC
 * Suspend
@@ -75,6 +87,16 @@ ExecStart=/home/%I/bin/dock
 
 [Install]
 WantedBy=sleep.target
+#+END_SRC
+Now we initialize these services.
+#+NAME: sys-services
+- suspend@gautam
+- resume@gautam
+#+NAME: system-services
+#+BEGIN_SRC sh :var services=sys-services :results output :eval yes
+for service in $services; do
+    echo "systemctl enable $service"
+done
 #+END_SRC
 * Watch for HDMI monitor
 This [[http://jasonwryan.com/blog/2014/01/20/udev/][blog post]] was integral in getting this working.
@@ -123,3 +145,4 @@ Exec=/usr/bin/dunst
 # end:
 
 #  LocalWords:  inkscapefigures inkscapewatch syncthing automount syncmedia
+#  LocalWords:  inkscape

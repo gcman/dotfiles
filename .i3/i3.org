@@ -5,13 +5,14 @@ checks if I have an external monitor plugged in and uses =xrandr= accordingly.
 #+BEGIN_SRC conf
 exec --no-startup-id dock
 #+END_SRC
-Then I start up Emacs.
+Then I start up Emacs and the browser.
 #+BEGIN_SRC conf
 exec emacs
+exec qutebrowser
 #+END_SRC
 Then I make the screen emit a bearable amount of blue light.
 #+BEGIN_SRC conf
-exec redshift
+exec --no-startup-id redshift
 #+END_SRC
 Speaking of bearable, the default key repeat delay and speed is too low for me.
 The first term is the delay, the second term is the speed. For the record,
@@ -103,8 +104,8 @@ bindsym $mod+shift+p mode "$mode_monitors"
 #+END_SRC
 Adjusting brightness.
 #+BEGIN_SRC conf
-bindsym XF86MonBrightnessDown exec change-brightness -U 5
-bindsym XF86MonBrightnessUp exec change-brightness -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id change-brightness -U 5
+bindsym XF86MonBrightnessUp exec --no-startup-id change-brightness -A 5
 #+END_SRC
 ** Workspaces
 A simple script + Org Babel tangling lets us save a lot of repetition over the
@@ -115,7 +116,7 @@ default config.
 The one thing to be careful about is that we don't try to bind =$mod+10=, because
 there is no "10" key.
 #+NAME: workspace-bindings
-#+BEGIN_SRC sh :tangle no :results output
+#+BEGIN_SRC sh :tangle no :results output :eval yes
 for num in $(seq 1 10); do
     echo "set \$ws$num \"$num\""
     if [ $num == 10 ]; then
@@ -137,11 +138,10 @@ Assign windows to certain workspaces.
 #+BEGIN_SRC conf
 assign [class="^Firefox$"] → $ws2
 assign [class="^mpv$"] → output DP1
-assign [class="^Inkscape$"] → output DP1
+assign [class="^Inkscape$"] → $ws6
 #+END_SRC
 Assign certain properties to windows.
 #+BEGIN_SRC conf
-for_window [class="^Inkscape$"] fullscreen
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
 for_window [class="^Emacs$" title="^org-capture-pop-frame$"] enable focus
 assign [class="^Emacs$" title="^org-capture-pop-frame$"] → output DP-1 DP1
@@ -153,7 +153,7 @@ focus_follows_mouse no
 #+END_SRC
 This is a cool script that lets me swap the workspaces on my monitors.
 #+BEGIN_SRC conf
-bindsym $mod+shift+s exec $HOME/.i3/i3-display-swap.sh
+bindsym $mod+shift+s exec --no-startup-id $HOME/.i3/i3-display-swap.sh
 #+END_SRC
 ** Window Management
 All default stuff.
@@ -217,16 +217,15 @@ The script =music-control= is in my =bin=. If it can, it connects to =emms= in E
 It falls back on =mpc=. This way, the numbers for the duration elapsed of a song
 is correct in Emacs.
 #+BEGIN_SRC conf
-bindsym XF86AudioMute exec "change-volume toggle"
-bindsym XF86AudioLowerVolume exec "change-volume 3dB- unmute"
-bindsym XF86AudioRaiseVolume exec "change-volume 3dB+ unmute"
+bindsym XF86AudioMute exec --no-startup-id "change-volume toggle"
+bindsym XF86AudioLowerVolume exec --no-startup-id "change-volume 3dB- unmute"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "change-volume 3dB+ unmute"
 
 bindsym XF86AudioPrev exec --no-startup-id music-control prev
 bindsym XF86AudioNext exec --no-startup-id music-control next
 bindsym XF86AudioPlay exec --no-startup-id music-control toggle
 bindsym Pause exec --no-startup-id music-control toggle
 #+END_SRC
-
 ** Screenshots
 Again, we use Babel to save some repetition.
 #+BEGIN_SRC conf :noweb yes
@@ -239,7 +238,7 @@ bindsym --release BIND exec --no-startup-id "scrot OPTIONS"
 #+END_SRC
 The values =path= and =target= are defined in the Org source block.
 #+NAME: screenshot-commands
-#+BEGIN_SRC python :tangle no :results output :var path="'/home/gautam/pictures/screenshots/%F_%T_$wx$h.png'" target="'xclip -selection clipboard -target image/png -i $f'"
+#+BEGIN_SRC python :eval yes :tangle no :results output :var path="'/home/gautam/pictures/screenshots/%F_%T_$wx$h.png'" target="'xclip -selection clipboard -target image/png -i $f'"
 commands = {
     "Print": "-s {} -e {}".format(path,target),
     "Shift-Print": "{} -e {}".format(path,target),
@@ -248,7 +247,6 @@ commands = {
 for bind in commands:
     print("bindsym --release {} exec --no-startup-id \"scrot {}\"".format(bind,commands[bind]))
 #+END_SRC
-
 ** Terminal
 #+BEGIN_SRC conf
 bindsym $mod+Return exec emacsclient -e "(let ((current-prefix-arg '(4))) (call-interactively 'eshell-other-frame))"

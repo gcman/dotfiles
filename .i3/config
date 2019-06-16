@@ -1,8 +1,9 @@
 exec --no-startup-id dock
 
 exec emacs
+exec qutebrowser
 
-exec redshift
+exec --no-startup-id redshift
 
 exec_always --no-startup-id xset r rate 125 60
 
@@ -64,8 +65,8 @@ mode "$mode_monitors" {
 bindsym $mod+p exec --no-startup-id dock
 bindsym $mod+shift+p mode "$mode_monitors"
 
-bindsym XF86MonBrightnessDown exec change-brightness -U 5
-bindsym XF86MonBrightnessUp exec change-brightness -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id change-brightness -U 5
+bindsym XF86MonBrightnessUp exec --no-startup-id change-brightness -A 5
 
 set $ws1 "1"
 bindsym $mod+1 workspace $ws1
@@ -106,16 +107,15 @@ workspace $ws5 output DP-1 DP1 primary
 
 assign [class="^Firefox$"] → $ws2
 assign [class="^mpv$"] → output DP1
-assign [class="^Inkscape$"] → output DP1
+assign [class="^Inkscape$"] → $ws6
 
-for_window [class="^Inkscape$"] fullscreen
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
 for_window [class="^Emacs$" title="^org-capture-pop-frame$"] enable focus
 assign [class="^Emacs$" title="^org-capture-pop-frame$"] → output DP-1 DP1
 
 focus_follows_mouse no
 
-bindsym $mod+shift+s exec $HOME/.i3/i3-display-swap.sh
+bindsym $mod+shift+s exec --no-startup-id $HOME/.i3/i3-display-swap.sh
 
 # change focus
 bindsym $mod+j focus left
@@ -168,9 +168,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym XF86AudioMute exec "change-volume toggle"
-bindsym XF86AudioLowerVolume exec "change-volume 3dB- unmute"
-bindsym XF86AudioRaiseVolume exec "change-volume 3dB+ unmute"
+bindsym XF86AudioMute exec --no-startup-id "change-volume toggle"
+bindsym XF86AudioLowerVolume exec --no-startup-id "change-volume 3dB- unmute"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "change-volume 3dB+ unmute"
 
 bindsym XF86AudioPrev exec --no-startup-id music-control prev
 bindsym XF86AudioNext exec --no-startup-id music-control next

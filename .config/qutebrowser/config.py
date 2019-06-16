@@ -138,8 +138,8 @@ config.bind('<Ctrl-Shift-i>', 'prompt-item-focus prev', mode='prompt')
 config.bind('<Shift-Tab>',    'prompt-item-focus prev', mode='prompt')
 config.bind('<Ctrl-i>',       'prompt-item-focus next', mode='prompt')
 config.bind('<Tab>',          'prompt-item-focus next', mode='prompt')
-config.bind('y',              'prompt-yes',      mode='prompt')
-config.bind('n',              'prompt-no',       mode='prompt')
+config.bind('y',              'prompt-accept yes',      mode='yesno')
+config.bind('n',              'prompt-accept no',       mode='yesno')
 # I still have problems with prompt. The confirm is a trap I can't
 # escape. Setting javascript.modal_dialog to True sort of solves that
 # by having an extra window with clickable buttons. Not ideal, but it
@@ -176,6 +176,7 @@ c.url.start_pages = 'https://duckduckgo.com'
 # Search engines
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'rr': 'https://reddit.com/r/{}',
+                       'yy': 'https://www.youtube.com/results?search_query={}',
                        "osm": "https://www.openstreetmap.org/search?query={}",
                        'aw': 'https://wiki.archlinux.org/?search={}',
                        'w': 'https://en.wikipedia.org/?search={}',

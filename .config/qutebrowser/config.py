@@ -37,6 +37,7 @@ config.bind('<Ctrl-x><Ctrl-c>', 'quit') # warning: closes all windows
 
 # tab management
 config.bind('<Ctrl-x>0', 'tab-close')
+config.bind('<Ctrl-x>k', 'tab-close')
 config.bind('d', 'tab-close')
 config.bind('u', 'undo')
 config.bind('<Ctrl-x>1', 'tab-only')
@@ -56,8 +57,8 @@ config.bind('<Ctrl-s>', 'search-next', mode='command')
 config.bind('<Ctrl-r>', 'search-prev', mode='command')
 
 ## Bindings for caret mode
-config.bind('v', 'enter-mode caret')
-config.bind('v', 'leave-mode', mode='caret')
+config.bind('s', 'enter-mode caret')
+config.bind('s', 'leave-mode', mode='caret')
 config.bind('<Escape>', 'leave-mode', mode='caret')
 config.bind('<Ctrl-g>', 'leave-mode', mode='caret')
 config.bind('<Ctrl-t>', 'toggle-selection', mode='caret')
@@ -161,8 +162,8 @@ config.bind('<Return>', 'follow-hint', mode='hint')
 config.bind('<Ctrl-m>', 'follow-hint', mode='hint')
 
 # mpv
-config.bind('<Ctrl-v>', 'spawn mpv {url}')
-config.bind('<Ctrl-Shift-v>', 'hint links spawn mpv {hint-url}')
+config.bind('vv', 'spawn mpv --fs {url}')
+config.bind('vo', 'hint links spawn mpv --fs {hint-url}')
 
 c.completion.height = '30%'
 
@@ -201,6 +202,8 @@ c.content.autoplay = False
 c.content.pdfjs = True
 c.scrolling.smooth = True
 c.tabs.background = True
+c.completion.use_best_match = True # fuzzy matching
+c.tabs.new_position.unrelated = "next"
 
 ################################################################################
 

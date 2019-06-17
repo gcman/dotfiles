@@ -181,7 +181,7 @@ bindsym --release Print exec --no-startup-id "scrot -s '/home/gautam/pictures/sc
 bindsym --release Shift-Print exec --no-startup-id "scrot '/home/gautam/pictures/screenshots/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
 bindsym --release Ctrl-Print exec --no-startup-id "scrot '/home/gautam/pictures/screenshots/%F_%T_$wx$h.png'"
 
-bindsym $mod+Return exec emacsclient -e "(let ((current-prefix-arg '(4))) (call-interactively 'eshell-other-frame))"
+bindsym $mod+Return exec --no-startup-id emacsclient -e "(let ((current-prefix-arg '(4))) (call-interactively 'eshell-other-frame))"
 bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown

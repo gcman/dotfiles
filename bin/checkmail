@@ -2,7 +2,7 @@
 
 STATE=`nmcli networking connectivity`
 
-if [ $STATE = 'full' ]
+if [ "$STATE" = 'full' ]
 then
     mbsync -a
     loadmail

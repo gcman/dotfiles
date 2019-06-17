@@ -1,8 +1,8 @@
 #!/bin/sh
 
-STATE=`nmcli networking connectivity`
+STATE=`ping -c 1 8.8.8.8 > /dev/null && echo "online" || echo "offline"`
 
-if [ "$STATE" = 'full' ]
+if [ "$STATE" = 'online' ]
 then
     mbsync -a
     loadmail

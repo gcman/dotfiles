@@ -4,7 +4,7 @@ adobe-source-han-sans-jp-fonts
 adobe-source-sans-pro-fonts
 alacritty
 alsa-utils
-aria2c
+aria2
 base
 base-devel
 bc
@@ -57,6 +57,8 @@ texlive-core
 texlive-lang
 texlive-localmanager-git
 tlp
+tlp
+tpacpi-bat
 ttf-dejavu
 ttf-font-awesome
 ttf-hack
@@ -68,14 +70,7 @@ xclip
 xdotool
 xf86-input-libinput
 xf86-video-intel
-xorg-server
-xorg-xinit
-xorg-xinput
-xorg-xmodmap
-xorg-xprop
-xorg-xrandr
-xorg-xset
-xorg-xwindow
+xorg
 youtube-dl
 zip
 zotero

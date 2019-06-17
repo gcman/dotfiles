@@ -4,7 +4,7 @@ install-yay:
 install-packages:
 		yay -S reflector
 		sudo reflector --verbose --latest 50 --sort rate --save /etc/pacman.d/mirrorlist
-		yay -S `cat packages.txt`
+		yay -S - < packages.txt
 
 link-config:
 		stow --restow .

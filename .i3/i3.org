@@ -58,7 +58,7 @@ bindsym $mod+b exec rofi -show window
 Default basic bindings.
 #+BEGIN_SRC conf
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 # split in horizontal orientation
 bindsym $mod+h split h
 

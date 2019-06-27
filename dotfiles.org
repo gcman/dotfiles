@@ -39,6 +39,7 @@ Setup all our =systemd= services.
 - inkscapewatch
 - checkmail.timer
 - syncmedia.timer
+- bat-shutdown
 We a quick script to turn these services into the appropriate =systemd=
 commands.
 #+NAME: systemd-commands
@@ -49,6 +50,9 @@ for service in $services; do
     done
 done
 #+END_SRC
+
+#+RESULTS: systemd-commands
+
 ** Python Packages
 #+NAME: python-packages
 - inkscape-figures

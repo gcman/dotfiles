@@ -15,7 +15,6 @@ dosfstools
 emacs
 emacs-pdf-tools-git
 evince
-firefox
 gconf
 git
 gnupg
@@ -53,8 +52,7 @@ shutter
 slock
 stow
 syncthing
-texlive-core
-texlive-lang
+texlive-most
 texlive-localmanager-git
 tlp
 tlp

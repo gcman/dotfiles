@@ -1,0 +1,10 @@
+[Unit]
+Description=Shutdown on low battery.
+
+[Service]
+Type=simple
+RemainAfterExit=no
+ExecStart=/home/gautam/bin/bat-shutdown
+
+[Install]
+WantedBy=default.target

@@ -4,12 +4,11 @@ STATE=`ping -c 1 8.8.8.8 > /dev/null && echo "online" || echo "offline"`
 
 if [ "$STATE" = 'online' ]
 then
-    mbsync -a
-    loadmail
+    /usr/bin/mbsync -a
+    /home/gautam/bin/loadmail
     COUNT=`notmuch count tag:inbox and tag:unread`
+    MESSAGE="$COUNT unread message"
     if (( $COUNT > 0 )); then
-        # emacsclient -e "(notmuch-refresh-all-buffers)"
-        MESSAGE="$COUNT unread message"
         if (( $COUNT > 1 )); then
             MESSAGE="${MESSAGE}s"
         else

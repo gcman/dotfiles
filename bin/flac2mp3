@@ -1,0 +1,11 @@
+#!/bin/sh
+
+DIR=${PWD##*/}
+DIR=`echo $DIR | sed -e 's/ /\\ /'`
+
+for a in ./*.flac; do
+    < /dev/null parallel ffmpeg -i {} -ar 32000 {.}.mp3 ::: ./*.flac
+done
+
+mkdir ../../phone-music/"$DIR"
+mv *.mp3 ../../phone-music/"$DIR"

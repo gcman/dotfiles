@@ -22,6 +22,10 @@ config.bind('<Ctrl-a>', 'back')
 config.bind('<Ctrl-e>', 'forward')
 config.bind('<Ctrl-x><Ctrl-f>', 'set-cmd-text -s :open -t')
 config.bind('<Ctrl-u><Ctrl-x><Ctrl-f>', 'set-cmd-text -s :open')
+config.bind('<Alt-w>', 'yank selection')
+config.bind('yu', 'yank url')
+config.bind('<Ctrl-y>', 'insert-text', mode='insert')
+config.bind('<Ctrl-y>', 'insert-text', mode='command')
 
 config.bind('f', 'set-cmd-text -s :open -t')
 config.bind('F', 'set-cmd-text -s :open')
@@ -30,6 +34,12 @@ config.bind('<Escape>', 'leave-mode', mode='insert')
 config.bind('<Ctrl-g>', 'leave-mode', mode='insert')
 config.bind('<Ctrl-m>', 'enter-mode insert')
 
+# emacs like bindings
+config.bind('<ctrl-h>', 'fake-key <backspace>', mode='insert')
+config.bind('<ctrl-d>', 'fake-key <delete>', mode='insert')
+config.bind('<ctrl-f>', 'fake-key <right>', mode='insert')
+config.bind('<ctrl-b>', 'fake-key <left>', mode='insert')
+
 # close qutebrowser
 config.bind('<Ctrl-x><Ctrl-c>', 'quit') # warning: closes all windows
 
@@ -37,6 +47,7 @@ config.bind('<Ctrl-x><Ctrl-c>', 'quit') # warning: closes all windows
 config.bind('<Ctrl-x>0', 'tab-close')
 config.bind('<Ctrl-x>k', 'tab-close')
 config.bind('d', 'tab-close')
+config.bind('D', 'tab-clone')
 config.bind('u', 'undo')
 config.bind('<Ctrl-x>1', 'tab-only')
 config.bind('<Alt-a>', 'tab-prev')
@@ -162,7 +173,7 @@ config.bind('<Ctrl-m>', 'follow-hint', mode='hint')
 
 # mpv
 config.bind('vv', 'spawn mpv --fs {url}')
-config.bind('vo', 'hint links spawn mpv --fs {hint-url}')
+config.bind('vo', 'hint --add-history links spawn mpv --fs {hint-url}')
 
 c.completion.height = '30%'
 
@@ -186,6 +197,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
 config.bind('cl', "open javascript:location.href='org-protocol://store-link?url='+ encodeURIComponent(location.href);")
 config.bind('cn', "open javascript:location.href='org-protocol://capture?template=n'")
 config.bind('cb', "open javascript:location.href='org-protocol://capture-html?template=p&url=' + encodeURIComponent(location.href) + '&title=' + encodeURIComponent(document.title || '[untitled page]') + '&body=' + encodeURIComponent(function () {var html = ''; if (typeof document.getSelection != 'undefined') {var sel = document.getSelection(); if (sel.rangeCount) {var container = document.createElement('div'); for (var i = 0, len = sel.rangeCount; i < len; ++i) {container.appendChild(sel.getRangeAt(i).cloneContents());} html = container.innerHTML;}} else if (typeof document.selection != 'undefined') {if (document.selection.type == 'Text') {html = document.selection.createRange().htmlText;}} var relToAbs = function (href) {var a = document.createElement('a'); a.href = href; var abs = a.protocol + '//' + a.host + a.pathname + a.search + a.hash; a.remove(); return abs;}; var elementTypes = [['a', 'href'], ['img', 'src']]; var div = document.createElement('div'); div.innerHTML = html; elementTypes.map(function(elementType) {var elements = div.getElementsByTagName(elementType[0]); for (var i = 0; i < elements.length; i++) {elements[i].setAttribute(elementType[1], relToAbs(elements[i].getAttribute(elementType[1])));}}); return div.innerHTML;}());")
+config.bind('cp', "spawn emacsclient org-protocol://capture?template=q&title={title}")
 
 # Pass
 config.bind('<z><l>', 'spawn --userscript qute-pass')
@@ -209,4 +221,5 @@ c.content.headers.do_not_track = True
 c.fonts.monospace = '"Hack", "xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
 c.qt.highdpi = True
 
-c.downloads.remove_finished = 100
+c.downloads.remove_finished = 1000
+c.tabs.mousewheel_switching = False

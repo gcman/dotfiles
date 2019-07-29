@@ -50,9 +50,6 @@ for service in $services; do
     done
 done
 #+END_SRC
-
-#+RESULTS: systemd-commands
-
 ** Python Packages
 #+NAME: python-packages
 - inkscape-figures

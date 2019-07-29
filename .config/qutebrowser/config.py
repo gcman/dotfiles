@@ -194,6 +194,15 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'w': 'https://en.wikipedia.org/?search={}',
 }
 
+# Code hints
+c.hints.selectors["code"] = [
+    # Selects all code tags whose direct parent is not a pre tag
+    ":not(pre) > code",
+    "pre"
+]
+
+config.bind('yc', 'hint code userscript code-select.py')
+
 # Org Capture
 config.bind('cl', "open javascript:location.href='org-protocol://store-link?url='+ encodeURIComponent(location.href);")
 config.bind('cn', "open javascript:location.href='org-protocol://capture?template=n'")

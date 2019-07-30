@@ -69,6 +69,6 @@ xdotool
 xf86-input-libinput
 xf86-video-intel
 xorg
-youtube-dl
+youtube-dl-git
 zip
 zotero

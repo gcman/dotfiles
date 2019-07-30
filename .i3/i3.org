@@ -136,7 +136,7 @@ workspace $ws5 output DP-1 DP1 primary
 #+END_SRC
 Assign windows to certain workspaces.
 #+BEGIN_SRC conf
-assign [class="^Firefox$"] → $ws2
+assign [class="^qutebrowser$"] → $ws2
 assign [class="^mpv$"] → output DP1
 assign [class="^Inkscape$"] → $ws6
 #+END_SRC

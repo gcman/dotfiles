@@ -217,6 +217,7 @@ config.bind('<z><o><l>', 'spawn --userscript qute-pass --otp-only')
 config.bind('<Alt+Shift+P>', 'spawn passmenu')
 
 # Other settings
+c.content.host_blocking.whitelist = ['thepiratebay.org']
 c.auto_save.session = True
 c.content.autoplay = False
 c.content.pdfjs = True
@@ -224,6 +225,7 @@ c.scrolling.smooth = True
 c.tabs.background = True
 c.completion.use_best_match = True # fuzzy matching
 c.tabs.new_position.unrelated = "next"
+c.new_instance_open_target = "tab-bg-silent"
 
 c.content.geolocation = 'ask'
 c.content.headers.do_not_track = True

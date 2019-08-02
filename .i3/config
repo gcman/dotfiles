@@ -69,41 +69,43 @@ bindsym XF86MonBrightnessDown exec --no-startup-id change-brightness -U 5
 bindsym XF86MonBrightnessUp exec --no-startup-id change-brightness -A 5
 
 set $ws1 "1"
-bindsym $mod+1 workspace $ws1
-bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+ workspace $ws1
+bindsym $mod+Shift+ move container to workspace $ws1
 set $ws2 "2"
-bindsym $mod+2 workspace $ws2
-bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+ workspace $ws2
+bindsym $mod+Shift+ move container to workspace $ws2
 set $ws3 "3"
-bindsym $mod+3 workspace $ws3
-bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+ workspace $ws3
+bindsym $mod+Shift+ move container to workspace $ws3
 set $ws4 "4"
-bindsym $mod+4 workspace $ws4
-bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+ workspace $ws4
+bindsym $mod+Shift+ move container to workspace $ws4
 set $ws5 "5"
-bindsym $mod+5 workspace $ws5
-bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+ workspace $ws5
+bindsym $mod+Shift+ move container to workspace $ws5
 set $ws6 "6"
-bindsym $mod+6 workspace $ws6
-bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+ workspace $ws6
+bindsym $mod+Shift+ move container to workspace $ws6
 set $ws7 "7"
-bindsym $mod+7 workspace $ws7
-bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+ workspace $ws7
+bindsym $mod+Shift+ move container to workspace $ws7
 set $ws8 "8"
-bindsym $mod+8 workspace $ws8
-bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+ workspace $ws8
+bindsym $mod+Shift+ move container to workspace $ws8
 set $ws9 "9"
-bindsym $mod+9 workspace $ws9
-bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+ workspace $ws9
+bindsym $mod+Shift+ move container to workspace $ws9
 set $ws10 "10"
-bindsym $mod+0 workspace $ws0
-bindsym $mod+Shift+0 move container to workspace $ws0
+bindsym $mod+0 workspace $ws10
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 workspace $ws1 output primary
+
 workspace $ws2 output DP-1 DP1 primary
 workspace $ws3 output DP-1 DP1 primary
 workspace $ws4 output DP-1 DP1 primary
 workspace $ws5 output DP-1 DP1 primary
+workspace $ws6 output DP-1 DP1 primary
 
 assign [class="^qutebrowser$"] → $ws2
 assign [class="^mpv$"] → output DP1

@@ -118,21 +118,28 @@ there is no "10" key.
 #+NAME: workspace-bindings
 #+BEGIN_SRC sh :tangle no :results output :eval yes
 for num in $(seq 1 10); do
-    echo "set \$ws$num \"$num\""
     if [ $num == 10 ]; then
-        num=0
+        bind=0
+    else
+        bind=$idx
     fi
-    echo "bindsym \$mod+$num workspace \$ws$num"
-    echo "bindsym \$mod+Shift+$num move container to workspace \$ws$num"
+    echo "set \$ws$num \"$num\""
+    echo "bindsym \$mod+$bind workspace \$ws$num"
+    echo "bindsym \$mod+Shift+$bind move container to workspace \$ws$num"
 done
 #+END_SRC
 Assign workspaces to certain displays.
 #+BEGIN_SRC conf
 workspace $ws1 output primary
-workspace $ws2 output DP-1 DP1 primary
-workspace $ws3 output DP-1 DP1 primary
-workspace $ws4 output DP-1 DP1 primary
-workspace $ws5 output DP-1 DP1 primary
+#+END_SRC
+#+BEGIN_SRC conf :noweb yes
+<<workspace-assignments()>>
+#+END_SRC
+#+NAME: workspace-assignments
+#+BEGIN_SRC sh :tangle no :results output :eval yes
+for num in $(seq 2 6); do
+    echo "workspace \$ws$num output DP-1 DP1 primary"
+done
 #+END_SRC
 Assign windows to certain workspaces.
 #+BEGIN_SRC conf

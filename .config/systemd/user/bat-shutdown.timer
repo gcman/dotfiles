@@ -1,0 +1,10 @@
+[Unit]
+Description=Shutdown on low battery
+
+[Timer]
+OnBootSec=2m
+OnUnitActiveSec=1m
+Unit=bat-shutdown.service
+
+[Install]
+WantedBy=timers.target

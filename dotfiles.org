@@ -39,7 +39,7 @@ Setup all our =systemd= services.
 - inkscapewatch
 - checkmail.timer
 - syncmedia.timer
-- bat-shutdown
+- bat-shutdown.timer
 We a quick script to turn these services into the appropriate =systemd=
 commands.
 #+NAME: systemd-commands
@@ -60,7 +60,7 @@ done
 #+END_SRC
 * Suspend
 Lock the screen on suspend.
-#+BEGIN_SRC systemd :tangle /sudo::/etc/systemd/system/suspend@gautam.service
+#+BEGIN_SRC systemd :tangle /sudo::/etc/systemd/system/suspend@.service
 [Unit]
 Description=User suspend actions
 Before=sleep.target
@@ -76,7 +76,7 @@ ExecStartPost=/usr/bin/sleep 1
 WantedBy=sleep.target
 #+END_SRC
 Dock to the appropriate state (external monitor or just laptop monitor) after resuming.
-#+BEGIN_SRC systemd :tangle /sudo::/etc/systemd/system/resume@gautam.service
+#+BEGIN_SRC systemd :tangle /sudo::/etc/systemd/system/resume@.service
 [Unit]
 Description=User suspend actions
 After=sleep.target
@@ -91,12 +91,12 @@ WantedBy=sleep.target
 #+END_SRC
 Now we initialize these services.
 #+NAME: sys-services
-- suspend@gautam
-- resume@gautam
+- suspend
+- resume
 #+NAME: system-services
 #+BEGIN_SRC sh :var services=sys-services :results output :eval yes
 for service in $services; do
-    echo "systemctl enable $service"
+    echo "systemctl enable $service@gautam"
 done
 #+END_SRC
 * Watch for HDMI monitor

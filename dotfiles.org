@@ -140,6 +140,11 @@ This is a simple replacement in =org.freedesktop.Notifications=.
 Name=org.freedesktop.Notifications
 Exec=/usr/bin/dunst
 #+END_SRC
+* Disable Wake-on-LAN
+Save some battery.
+#+BEGIN_SRC conf :tangle /sudo::/etc/udev/rules.d/81-wifi-powersave.rules
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="/usr/bin/iw dev $name set power_save on"
+#+END_SRC
 * Options
 # Local variables:
 # after-save-hook: org-babel-tangle

@@ -121,7 +121,7 @@ for num in $(seq 1 10); do
     if [ $num == 10 ]; then
         bind=0
     else
-        bind=$idx
+        bind=$num
     fi
     echo "set \$ws$num \"$num\""
     echo "bindsym \$mod+$bind workspace \$ws$num"

@@ -52,8 +52,8 @@ shutter
 slock
 stow
 syncthing
-texlive-most
 texlive-localmanager-git
+texlive-most
 tlp
 tlp
 tpacpi-bat
@@ -63,6 +63,7 @@ ttf-hack
 ttf-symbola
 udisks2
 unzip
+wildmidi
 xbindkeys
 xclip
 xdotool

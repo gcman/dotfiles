@@ -7,8 +7,8 @@ exec --no-startup-id dock
 #+END_SRC
 Then I start up Emacs and the browser.
 #+BEGIN_SRC conf
-exec emacs
-exec qutebrowser
+exec --no-startup-id emacs
+exec --no-startup-id qutebrowser
 #+END_SRC
 Then I make the screen emit a bearable amount of blue light.
 #+BEGIN_SRC conf

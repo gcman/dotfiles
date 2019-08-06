@@ -176,8 +176,8 @@ config.bind('<Return>', 'follow-hint', mode='hint')
 config.bind('<Ctrl-m>', 'follow-hint', mode='hint')
 
 # mpv
-config.bind('vv', 'spawn mpv --fs {url}')
-config.bind('vo', 'hint --add-history links spawn mpv --fs {hint-url}')
+config.bind('V', 'spawn mpv --fs {url}')
+config.bind('v', 'hint --add-history links spawn mpv --fs {hint-url}')
 
 c.completion.height = '30%'
 
@@ -209,7 +209,7 @@ config.bind('yc', 'hint code userscript code-select.py')
 # Org Capture
 config.bind('cl', "spawn emacsclient org-protocol://store-link?url={url}")
 config.bind('cn', "spawn emacsclient org-protocol://capture?template=n")
-config.bind('cb', "open javascript:location.href='org-protocol://capture-html?template=p&url=' + encodeURIComponent(location.href) + '&title=' + encodeURIComponent(document.title || '[untitled page]') + '&body=' + encodeURIComponent(function () {var html = ''; if (typeof document.getSelection != 'undefined') {var sel = document.getSelection(); if (sel.rangeCount) {var container = document.createElement('div'); for (var i = 0, len = sel.rangeCount; i < len; ++i) {container.appendChild(sel.getRangeAt(i).cloneContents());} html = container.innerHTML;}} else if (typeof document.selection != 'undefined') {if (document.selection.type == 'Text') {html = document.selection.createRange().htmlText;}} var relToAbs = function (href) {var a = document.createElement('a'); a.href = href; var abs = a.protocol + '//' + a.host + a.pathname + a.search + a.hash; a.remove(); return abs;}; var elementTypes = [['a', 'href'], ['img', 'src']]; var div = document.createElement('div'); div.innerHTML = html; elementTypes.map(function(elementType) {var elements = div.getElementsByTagName(elementType[0]); for (var i = 0; i < elements.length; i++) {elements[i].setAttribute(elementType[1], relToAbs(elements[i].getAttribute(elementType[1])));}}); return div.innerHTML;}());")
+config.bind('cb', "spawn --userscript org-capture-bookmark.py")
 config.bind('cp', "spawn emacsclient org-protocol://capture?template=q&title={title}")
 config.bind('cc', "hint code userscript org-capture-code.py")
 

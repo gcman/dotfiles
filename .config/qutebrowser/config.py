@@ -207,10 +207,11 @@ c.hints.selectors["code"] = [
 config.bind('yc', 'hint code userscript code-select.py')
 
 # Org Capture
-config.bind('cl', "open javascript:location.href='org-protocol://store-link?url='+ encodeURIComponent(location.href);")
-config.bind('cn', "open javascript:location.href='org-protocol://capture?template=n'")
+config.bind('cl', "spawn emacsclient org-protocol://store-link?url={url}")
+config.bind('cn', "spawn emacsclient org-protocol://capture?template=n")
 config.bind('cb', "open javascript:location.href='org-protocol://capture-html?template=p&url=' + encodeURIComponent(location.href) + '&title=' + encodeURIComponent(document.title || '[untitled page]') + '&body=' + encodeURIComponent(function () {var html = ''; if (typeof document.getSelection != 'undefined') {var sel = document.getSelection(); if (sel.rangeCount) {var container = document.createElement('div'); for (var i = 0, len = sel.rangeCount; i < len; ++i) {container.appendChild(sel.getRangeAt(i).cloneContents());} html = container.innerHTML;}} else if (typeof document.selection != 'undefined') {if (document.selection.type == 'Text') {html = document.selection.createRange().htmlText;}} var relToAbs = function (href) {var a = document.createElement('a'); a.href = href; var abs = a.protocol + '//' + a.host + a.pathname + a.search + a.hash; a.remove(); return abs;}; var elementTypes = [['a', 'href'], ['img', 'src']]; var div = document.createElement('div'); div.innerHTML = html; elementTypes.map(function(elementType) {var elements = div.getElementsByTagName(elementType[0]); for (var i = 0; i < elements.length; i++) {elements[i].setAttribute(elementType[1], relToAbs(elements[i].getAttribute(elementType[1])));}}); return div.innerHTML;}());")
 config.bind('cp', "spawn emacsclient org-protocol://capture?template=q&title={title}")
+config.bind('cc', "hint code userscript org-capture-code.py")
 
 # Pass
 config.bind('<z><l>', 'spawn --userscript qute-pass')
@@ -238,3 +239,6 @@ c.qt.highdpi = True
 
 c.downloads.remove_finished = 1000
 c.tabs.mousewheel_switching = False
+
+c.content.headers.accept_language =  "en-US,en;q=0.5"
+c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}

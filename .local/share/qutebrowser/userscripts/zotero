@@ -32,6 +32,7 @@ class NoTranslatorError(Exception):
 
 
 class WrongResponseError(Exception):
+
     '''Raise when we don't get the desired response'''
     # Note: Zotero doesn't give any useful information at all if things go wrong. Almost every
     # problem results in a 500 error, with no pointer as to specific issues.

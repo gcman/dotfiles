@@ -150,8 +150,7 @@ assign [class="^Inkscape$"] → $ws6
 Assign certain properties to windows.
 #+BEGIN_SRC conf
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
-for_window [class="^Emacs$" title="^org-capture-pop-frame$"] enable focus
-assign [class="^Emacs$" title="^org-capture-pop-frame$"] → output DP-1 DP1
+for_window [class="^Emacs$" title="^org-capture-pop-frame$"] move container to workspace $ws2
 #+END_SRC
 I really like having a window open on one monitor and using the keyboard to
 control stuff on another monitor.

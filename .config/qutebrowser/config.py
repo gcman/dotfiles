@@ -5,6 +5,9 @@ c.bindings.default = {}
 
 def bind_chained(key, *commands):
     config.bind(key, ' ;; '.join(commands))
+
+# Don't have to always press Shift    
+config.bind(';', 'set-cmd-text :')
     
 # Reload config
 config.bind('<Ctrl-x><Ctrl-l>', 'config-source')

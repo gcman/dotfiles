@@ -214,10 +214,10 @@ config.bind('cp', "spawn emacsclient org-protocol://capture?template=q&title={ti
 config.bind('cc', "hint code userscript org-capture-code.py")
 
 # Pass
-config.bind('<z><l>', 'spawn --userscript qute-pass')
-config.bind('<z><u><l>', 'spawn --userscript qute-pass --username-only')
-config.bind('<z><p><l>', 'spawn --userscript qute-pass --password-only')
-config.bind('<z><o><l>', 'spawn --userscript qute-pass --otp-only')
+config.bind('zl', 'spawn --userscript qute-pass')
+config.bind('zul', 'spawn --userscript qute-pass --username-only')
+config.bind('zpl', 'spawn --userscript qute-pass --password-only')
+config.bind('zol', 'spawn --userscript qute-pass --otp-only')
 config.bind('<Alt+Shift+P>', 'spawn passmenu')
 
 # Other settings
@@ -242,3 +242,9 @@ c.tabs.mousewheel_switching = False
 
 c.content.headers.accept_language =  "en-US,en;q=0.5"
 c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
+
+c.aliases = {**c.aliases,
+             "msg":"messages -t",
+             "messages":"messages -t",
+             "help":"help -t"}
+

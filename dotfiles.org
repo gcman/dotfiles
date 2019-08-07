@@ -145,6 +145,16 @@ Save some battery.
 #+BEGIN_SRC conf :tangle /sudo::/etc/udev/rules.d/81-wifi-powersave.rules
 ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="/usr/bin/iw dev $name set power_save on"
 #+END_SRC
+* Default =xdg= applications
+Sometimes the defaults aren't configured well.
+#+NAME: xdg-applications
+| mpv | audio/flac |
+| mpv | audio/mpeg |
+#+BEGIN_SRC sh apps=xdg-applications
+for app in $apps; do
+    xdg-mime default ${app[0]}.desktop ${app[1]}
+done
+#+END_SRC
 * Options
 # Local variables:
 # after-save-hook: org-babel-tangle

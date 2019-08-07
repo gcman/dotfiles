@@ -4,7 +4,7 @@ import clipboard
 from pathlib import Path
 
 home = str(Path.home())
-exec(open(home + ".local/share/qutebrowser/userscripts/code-select-helper.py").read())
+exec(open(home + "/.local/share/qutebrowser/userscripts/code-select-helper.py").read())
 
 def main():
     code_text = get_code_text()

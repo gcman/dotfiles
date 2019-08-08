@@ -187,6 +187,7 @@ c.hints.selectors["code"] = [
 ]
 
 config.bind('yc', 'hint code userscript code-select.py')
+config.bind('yg', 'spawn --userscript github-copy.py')
 
 # Org Capture
 config.bind('cl', "spawn emacsclient org-protocol://store-link?url={url}")
@@ -203,8 +204,8 @@ config.bind('zol', 'spawn --userscript qute-pass --otp-only')
 config.bind('<Alt+Shift+P>', 'spawn passmenu')
 
 # Torrent
-config.bind('to', "hint links spawn emacsclient -e '(transmission-add \"{hint-url}\")'")
-config.bind('tO', "hint --rapid links spawn emacsclient -e '(transmission-add \"{hint-url}\")'")
+config.bind('to', "hint links spawn emacsclient -e '(gm/transmission-add \"{hint-url}\")'")
+config.bind('tO', "hint --rapid links spawn emacsclient -e '(gm/transmission-add \"{hint-url}\")'")
 
 # Other settings
 c.completion.height = '30%'
@@ -225,7 +226,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'w': 'https://en.wikipedia.org/?search={}',
 }
 
-c.content.host_blocking.whitelist = ['thepiratebay.org']
+c.content.host_blocking.whitelist = ['thepiratebay.org','adf.ly']
 c.auto_save.session = True
 c.content.autoplay = False
 c.content.pdfjs = True

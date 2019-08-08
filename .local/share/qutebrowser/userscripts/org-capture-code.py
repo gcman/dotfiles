@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import subprocess
-import clipboard
 from pathlib import Path
 
 home = str(Path.home())

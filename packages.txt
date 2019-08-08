@@ -4,7 +4,6 @@ adobe-source-han-sans-jp-fonts
 adobe-source-sans-pro-fonts
 alacritty
 alsa-utils
-aria2
 base
 base-devel
 bc
@@ -15,6 +14,7 @@ dosfstools
 emacs
 emacs-pdf-tools-git
 evince
+exit
 gconf
 git
 gnupg
@@ -46,17 +46,16 @@ ripgrep
 rofi
 rofi-dmenu
 rsync
-rtorrent
+scrot
 sdcv
-shutter
 slock
 stow
 syncthing
 texlive-localmanager-git
 texlive-most
 tlp
-tlp
 tpacpi-bat
+transmission-cli
 ttf-dejavu
 ttf-font-awesome
 ttf-hack

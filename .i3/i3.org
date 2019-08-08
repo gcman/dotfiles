@@ -137,8 +137,12 @@ workspace $ws1 output primary
 #+END_SRC
 #+NAME: workspace-assignments
 #+BEGIN_SRC sh :tangle no :results output :eval yes
+echo "workspace \$ws0 output DP-1 DP1 primary"
 for num in $(seq 2 6); do
     echo "workspace \$ws$num output DP-1 DP1 primary"
+done
+for num in $(seq 7 9); do
+    echo "workspace \$ws$num output primary"
 done
 #+END_SRC
 Assign windows to certain workspaces.

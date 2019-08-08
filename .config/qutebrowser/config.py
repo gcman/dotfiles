@@ -168,8 +168,8 @@ c.content.javascript.modal_dialog = True
 # hinting
 config.bind('o', 'hint')
 config.bind('O', 'hint --rapid links tab-bg')
-# config.bind('<Ctrl-B>', 'hint all tab-bg', mode='hint')
-# config.bind('<Ctrl-F>', 'hint links', mode='hint')
+config.bind("r", "hint --rapid", mode='hint')
+
 config.bind('<Escape>', 'leave-mode', mode='hint')
 config.bind('<Ctrl-g>', 'leave-mode', mode='hint')
 config.bind('<Return>', 'follow-hint', mode='hint')
@@ -179,6 +179,34 @@ config.bind('<Ctrl-m>', 'follow-hint', mode='hint')
 config.bind('V', 'spawn mpv --fs {url}')
 config.bind('v', 'hint --add-history links spawn mpv --fs {hint-url}')
 
+# Code hints
+c.hints.selectors["code"] = [
+    # Selects all code tags whose direct parent is not a pre tag
+    ":not(pre) > code",
+    "pre"
+]
+
+config.bind('yc', 'hint code userscript code-select.py')
+
+# Org Capture
+config.bind('cl', "spawn emacsclient org-protocol://store-link?url={url}")
+config.bind('cn', "spawn emacsclient org-protocol://capture?template=n")
+config.bind('cp', "spawn emacsclient org-protocol://capture?template=q&title={title}")
+config.bind('cb', "spawn --userscript org-capture-bookmark.py")
+config.bind('cc', "hint code userscript org-capture-code.py")
+
+# Pass
+config.bind('zl', 'spawn --userscript qute-pass')
+config.bind('zul', 'spawn --userscript qute-pass --username-only')
+config.bind('zpl', 'spawn --userscript qute-pass --password-only')
+config.bind('zol', 'spawn --userscript qute-pass --otp-only')
+config.bind('<Alt+Shift+P>', 'spawn passmenu')
+
+# Torrent
+config.bind('to', "hint links spawn emacsclient -e '(transmission-add \"{hint-url}\")'")
+config.bind('tO', "hint --rapid links spawn emacsclient -e '(transmission-add \"{hint-url}\")'")
+
+# Other settings
 c.completion.height = '30%'
 
 # Empty whitelist
@@ -197,30 +225,6 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'w': 'https://en.wikipedia.org/?search={}',
 }
 
-# Code hints
-c.hints.selectors["code"] = [
-    # Selects all code tags whose direct parent is not a pre tag
-    ":not(pre) > code",
-    "pre"
-]
-
-config.bind('yc', 'hint code userscript code-select.py')
-
-# Org Capture
-config.bind('cl', "spawn emacsclient org-protocol://store-link?url={url}")
-config.bind('cn', "spawn emacsclient org-protocol://capture?template=n")
-config.bind('cb', "spawn --userscript org-capture-bookmark.py")
-config.bind('cp', "spawn emacsclient org-protocol://capture?template=q&title={title}")
-config.bind('cc', "hint code userscript org-capture-code.py")
-
-# Pass
-config.bind('zl', 'spawn --userscript qute-pass')
-config.bind('zul', 'spawn --userscript qute-pass --username-only')
-config.bind('zpl', 'spawn --userscript qute-pass --password-only')
-config.bind('zol', 'spawn --userscript qute-pass --otp-only')
-config.bind('<Alt+Shift+P>', 'spawn passmenu')
-
-# Other settings
 c.content.host_blocking.whitelist = ['thepiratebay.org']
 c.auto_save.session = True
 c.content.autoplay = False

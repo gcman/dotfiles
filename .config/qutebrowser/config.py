@@ -176,8 +176,8 @@ config.bind('<Return>', 'follow-hint', mode='hint')
 config.bind('<Ctrl-m>', 'follow-hint', mode='hint')
 
 # mpv
-config.bind('V', 'spawn mpv --fs {url}')
-config.bind('v', 'hint --add-history links spawn mpv --fs {hint-url}')
+config.bind('V', "spawn --userscript mpv-play.py")
+config.bind('v', 'hint --add-history links userscript mpv-play.py')
 
 # Code hints
 c.hints.selectors["code"] = [

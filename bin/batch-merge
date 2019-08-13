@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for file in *$1; do
+    extension="${file##*.}"
+    filename="${file%.*}"
+    mkvmerge -o "(NEW) $filename.mkv" "$file" "$filename.$2"
+done

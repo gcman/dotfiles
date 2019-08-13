@@ -1,0 +1,13 @@
+#!/bin/sh
+
+for file in *$1; do
+    extension="${file##*.}"
+    filename="${file%.*}"
+    if [ "$1" == mkv ]; then
+        mkvextract tracks "$file" "1:
+$filename.$2"
+    else
+        ffmpeg -i "$file" -acodec copy -vn "$filename.$2"
+
+    fi
+done

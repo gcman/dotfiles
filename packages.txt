@@ -37,6 +37,7 @@ pdf2svg
 pdftk
 powertop
 python
+python-beautifulsoup4
 python-pip
 python-tldextract
 qutebrowser-git

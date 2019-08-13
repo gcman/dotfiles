@@ -12,11 +12,11 @@ if [ -d "$drive" ]; then
 
     for dir in $dirs
     do
-        rsync -hauv --progress ~/$dir/ $drive/$dir
+        rsync -hauv --no-links --progress ~/$dir/ $drive/$dir
     done
 
-    rsync -hauv --progress --exclude /.git ~/org/ $drive/org
-    rsync -hauv --progress ~/Camera/ $drive/pictures/Camera
+    rsync -hauv --no-links --progress --exclude /.git ~/org/ $drive/org
+    rsync -hauv --no-links --progress ~/Camera/ $drive/pictures/Camera
 
     for f in ~/videos/YouTube/*; do
         if [ -d "$f" ]; then

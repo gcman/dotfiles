@@ -12,7 +12,8 @@ config.bind(';', 'set-cmd-text :')
 # Reload config
 config.bind('<Ctrl-x><Ctrl-l>', 'config-source')
 
-config.bind('<Ctrl-E>', 'open-editor', mode='insert')
+config.
+bind('<Alt-e>', 'open-editor', mode='insert')
 c.editor.command = ['emacsclient', '-c', '{}']
 
 config.bind('<', 'scroll-to-perc 0')
@@ -43,6 +44,17 @@ config.bind('<ctrl-h>', 'fake-key <backspace>', mode='insert')
 config.bind('<ctrl-d>', 'fake-key <delete>', mode='insert')
 config.bind('<ctrl-f>', 'fake-key <right>', mode='insert')
 config.bind('<ctrl-b>', 'fake-key <left>', mode='insert')
+config.bind('<Ctrl-e>', 'fake-key <End>', mode='insert')
+config.bind('<Ctrl-n>', 'fake-key <Down>', mode='insert')
+config.bind('<Ctrl-p>', 'fake-key <Up>', mode='insert')
+config.bind('<Alt-v>', 'fake-key <PgUp>', mode='insert')
+config.bind('<Ctrl-v>', 'fake-key <PgDown>', mode='insert')
+config.bind('<Alt-f>', 'fake-key <Ctrl-Right>', mode='insert')
+config.bind('<Alt-b>', 'fake-key <Ctrl-Left>', mode='insert')
+config.bind('<Ctrl-d>', 'fake-key <Delete>', mode='insert')
+config.bind('<Alt-d>', 'fake-key <Ctrl-Delete>', mode='insert')
+config.bind('<Ctrl-w>', 'fake-key <Ctrl-Backspace>', mode='insert')
+config.bind('<Ctrl-y>', 'insert-text {primary}', mode='insert')
 
 # close qutebrowser
 config.bind('<Ctrl-x><Ctrl-c>', 'quit') # warning: closes all windows
@@ -168,7 +180,6 @@ c.content.javascript.modal_dialog = True
 # hinting
 config.bind('o', 'hint')
 config.bind('O', 'hint --rapid links tab-bg')
-config.bind("r", "hint --rapid", mode='hint')
 
 config.bind('<Escape>', 'leave-mode', mode='hint')
 config.bind('<Ctrl-g>', 'leave-mode', mode='hint')
@@ -178,6 +189,7 @@ config.bind('<Ctrl-m>', 'follow-hint', mode='hint')
 # mpv
 config.bind('V', "spawn --userscript mpv-play.py")
 config.bind('v', 'hint --add-history links userscript mpv-play.py')
+config.bind('hv', 'hint --add-history --rapid links userscript mpv-play.py')
 
 # Code hints
 c.hints.selectors["code"] = [

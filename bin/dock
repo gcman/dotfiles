@@ -2,6 +2,7 @@
 
 xset r rate 125 60
 setxkbmap -option ctrl:nocaps
+udisksctl mount -b /dev/disk/by-uuid/501b6655-ac04-4e1e-b921-67e8947b2d84
 
 MONITOR="DP1"
 STATUS=`cat /sys/class/drm/card0/card0-DP-1/status`

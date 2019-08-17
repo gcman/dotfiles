@@ -190,6 +190,7 @@ config.bind('<Ctrl-m>', 'follow-hint', mode='hint')
 config.bind('V', "spawn --userscript mpv-play.py")
 config.bind('v', 'hint --add-history links userscript mpv-play.py')
 config.bind('hv', 'hint --add-history --rapid links userscript mpv-play.py')
+config.bind('<Ctrl-u>v', 'spawn --userscript ytdl.py')
 
 # Code hints
 c.hints.selectors["code"] = [

@@ -116,7 +116,8 @@ assign [class="^mpv$"] → output DP1
 assign [class="^Inkscape$"] → $ws6
 
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
-for_window [class="^Emacs$" title="^org-capture-pop-frame$"] move container to workspace $ws2
+for_window [class="^Emacs$" title="^org-capture-pop-frame$"] move container to output current
+for_window [class="^mpv$"] move container to workspace $ws3
 
 focus_follows_mouse no
 

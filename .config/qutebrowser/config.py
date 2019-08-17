@@ -12,8 +12,7 @@ config.bind(';', 'set-cmd-text :')
 # Reload config
 config.bind('<Ctrl-x><Ctrl-l>', 'config-source')
 
-config.
-bind('<Alt-e>', 'open-editor', mode='insert')
+config. bind('<Alt-e>', 'open-editor', mode='insert')
 c.editor.command = ['emacsclient', '-c', '{}']
 
 config.bind('<', 'scroll-to-perc 0')
@@ -179,6 +178,7 @@ c.content.javascript.modal_dialog = True
 
 # hinting
 config.bind('o', 'hint')
+config.bind('bo', 'hint links tab-bg')
 config.bind('O', 'hint --rapid links tab-bg')
 
 config.bind('<Escape>', 'leave-mode', mode='hint')
@@ -202,7 +202,7 @@ config.bind('yc', 'hint code userscript code-select.py')
 config.bind('yg', 'spawn --userscript github-copy.py')
 
 # Org Capture
-config.bind('cl', "spawn emacsclient org-protocol://store-link?url={url}")
+config.bind('cl', "spawn emacsclient org-protocol://store-link?url={url} ;; yank inline {url}")
 config.bind('cn', "spawn emacsclient org-protocol://capture?template=n")
 config.bind('cp', "spawn emacsclient org-protocol://capture?template=q&title={title}")
 config.bind('cb', "spawn --userscript org-capture-bookmark.py")
@@ -236,6 +236,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        "osm": "https://www.openstreetmap.org/search?query={}",
                        'aw': 'https://wiki.archlinux.org/?search={}',
                        'w': 'https://en.wikipedia.org/?search={}',
+                       'car': 'https://carta.stanford.edu/course/{}'
 }
 
 c.content.host_blocking.whitelist = ['thepiratebay.org','adf.ly']

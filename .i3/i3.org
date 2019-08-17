@@ -2,8 +2,10 @@
 * Startup
 The first thing I do is set up my screens. This is a script in my =~/bin= that
 checks if I have an external monitor plugged in and uses =xrandr= accordingly.
+This script also sets some keybindings, key repeat delay and speed, and trackpad
+behaviour.
 #+BEGIN_SRC conf
-exec --no-startup-id dock
+exec-always --no-startup-id dock
 #+END_SRC
 Then I start up Emacs and the browser.
 #+BEGIN_SRC conf
@@ -14,22 +16,9 @@ Then I make the screen emit a bearable amount of blue light.
 #+BEGIN_SRC conf
 exec --no-startup-id redshift
 #+END_SRC
-Speaking of bearable, the default key repeat delay and speed is too low for me.
-The first term is the delay, the second term is the speed. For the record,
-=exec_always= runs the command even when i3 is reloaded (as opposed to started for
-the first time).
+Set up the torrent client.
 #+BEGIN_SRC conf
-exec_always --no-startup-id xset r rate 125 60
-#+END_SRC
-This makes Caps Lock act as a Control key.
-#+BEGIN_SRC conf
-exec_always --no-startup-id setxkbmap -option ctrl:nocaps
-#+END_SRC
-I also want moving my hand down to scroll the screen up. My trackpad is a little
-messed up, so tap-to-click is very useful.
-#+BEGIN_SRC conf
-exec_always --no-startup-id xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Natural Scrolling Enabled" 1
-exec_always --no-startup-id xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id transmission-daemon
 #+END_SRC
 * Basic Controls
 This corresponds to the Super/Windows key on my keyboard.
@@ -137,7 +126,7 @@ workspace $ws1 output primary
 #+END_SRC
 #+NAME: workspace-assignments
 #+BEGIN_SRC sh :tangle no :results output :eval yes
-echo "workspace \$ws0 output DP-1 DP1 primary"
+echo "workspace \$ws10 output DP-1 DP1 primary"
 for num in $(seq 2 6); do
     echo "workspace \$ws$num output DP-1 DP1 primary"
 done
@@ -148,14 +137,13 @@ done
 Assign windows to certain workspaces.
 #+BEGIN_SRC conf
 assign [class="^qutebrowser$"] → $ws2
-assign [class="^mpv$"] → output DP1
+assign [class="^mpv$"] → $ws3
 assign [class="^Inkscape$"] → $ws6
 #+END_SRC
 Assign certain properties to windows.
 #+BEGIN_SRC conf
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
 for_window [class="^Emacs$" title="^org-capture-pop-frame$"] move container to output current
-for_window [class="^mpv$"] move container to workspace $ws3
 #+END_SRC
 I really like having a window open on one monitor and using the keyboard to
 control stuff on another monitor.
@@ -224,9 +212,9 @@ bindsym $mod+r mode "resize"
 #+END_SRC
 * Utilities
 ** Audio
-The script =music-control= is in my =bin=. If it can, it connects to =emms= in Emacs.
-It falls back on =mpc=. This way, the numbers for the duration elapsed of a song
-is correct in Emacs.
+The script =music-control= is in my =~/bin=. If it can, it connects to =emms= in
+Emacs. It falls back on =mpc=. This way, the elapsed time of a song is correct in
+Emacs.
 #+BEGIN_SRC conf
 bindsym XF86AudioMute exec --no-startup-id "change-volume toggle"
 bindsym XF86AudioLowerVolume exec --no-startup-id "change-volume 3dB- unmute"

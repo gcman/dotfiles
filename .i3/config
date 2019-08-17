@@ -1,16 +1,11 @@
-exec --no-startup-id dock
+exec-always --no-startup-id dock
 
 exec --no-startup-id emacs
 exec --no-startup-id qutebrowser
 
 exec --no-startup-id redshift
 
-exec_always --no-startup-id xset r rate 125 60
-
-exec_always --no-startup-id setxkbmap -option ctrl:nocaps
-
-exec_always --no-startup-id xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Natural Scrolling Enabled" 1
-exec_always --no-startup-id xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id transmission-daemon
 
 set $mod Mod4
 
@@ -101,7 +96,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 workspace $ws1 output primary
 
-workspace $ws0 output DP-1 DP1 primary
+workspace $ws10 output DP-1 DP1 primary
 workspace $ws2 output DP-1 DP1 primary
 workspace $ws3 output DP-1 DP1 primary
 workspace $ws4 output DP-1 DP1 primary
@@ -112,12 +107,11 @@ workspace $ws8 output primary
 workspace $ws9 output primary
 
 assign [class="^qutebrowser$"] → $ws2
-assign [class="^mpv$"] → output DP1
+assign [class="^mpv$"] → $ws3
 assign [class="^Inkscape$"] → $ws6
 
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
 for_window [class="^Emacs$" title="^org-capture-pop-frame$"] move container to output current
-for_window [class="^mpv$"] move container to workspace $ws3
 
 focus_follows_mouse no
 

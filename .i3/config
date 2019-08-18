@@ -111,15 +111,15 @@ assign [class="^mpv$"] → $ws3
 assign [class="^Inkscape$"] → $ws6
 
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
-for_window [class="^Emacs$" title="^org-capture-pop-frame$"] move container to output current
+for_window [class="^Emacs$" title="^org-capture-pop-frame$"] move container to workspace $ws2
 
 focus_follows_mouse no
 
 bindsym $mod+shift+s exec --no-startup-id $HOME/.i3/i3-display-swap.sh
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus right
+bindsym $mod+j focus right
+bindsym $mod+k focus left
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus down
 

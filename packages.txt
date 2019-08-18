@@ -71,5 +71,8 @@ xf86-input-libinput
 xf86-video-intel
 xorg
 youtube-dl-git
+zathura
+zathura-djvu
+zathura-pdf-poppler
 zip
 zotero

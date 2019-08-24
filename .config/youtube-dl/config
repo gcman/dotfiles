@@ -6,6 +6,7 @@
 
 # Uniform Format
 --prefer-ffmpeg
+--format 'bestvideo[height<=1080]+bestaudio'
 --merge-output-format mkv
 
 # Get All Subs to SRT

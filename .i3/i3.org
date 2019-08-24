@@ -6,6 +6,7 @@ This script also sets some keybindings, key repeat delay and speed, and trackpad
 behaviour.
 #+BEGIN_SRC conf
 exec-always --no-startup-id dock
+exec --no-startup-id dock
 #+END_SRC
 Then I start up Emacs and the browser.
 #+BEGIN_SRC conf
@@ -126,7 +127,6 @@ workspace $ws1 output primary
 #+END_SRC
 #+NAME: workspace-assignments
 #+BEGIN_SRC sh :tangle no :results output :eval yes
-echo "workspace \$ws10 output DP-1 DP1 primary"
 for num in $(seq 2 6); do
     echo "workspace \$ws$num output DP-1 DP1 primary"
 done

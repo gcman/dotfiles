@@ -1,7 +1,5 @@
 # Unbind some standard qutebrowser bindings
 c.bindings.default = {}
-# If you don't want to unbind everything it might be necessary to
-# unbind at least the conflicting keybindings like this:
 
 def bind_chained(key, *commands):
     config.bind(key, ' ;; '.join(commands))
@@ -47,13 +45,12 @@ config.bind('<Ctrl-e>', 'fake-key <End>', mode='insert')
 config.bind('<Ctrl-n>', 'fake-key <Down>', mode='insert')
 config.bind('<Ctrl-p>', 'fake-key <Up>', mode='insert')
 config.bind('<Alt-v>', 'fake-key <PgUp>', mode='insert')
-config.bind('<Ctrl-v>', 'fake-key <PgDown>', mode='insert')
 config.bind('<Alt-f>', 'fake-key <Ctrl-Right>', mode='insert')
 config.bind('<Alt-b>', 'fake-key <Ctrl-Left>', mode='insert')
 config.bind('<Ctrl-d>', 'fake-key <Delete>', mode='insert')
 config.bind('<Alt-d>', 'fake-key <Ctrl-Delete>', mode='insert')
 config.bind('<Ctrl-w>', 'fake-key <Ctrl-Backspace>', mode='insert')
-config.bind('<Ctrl-y>', 'insert-text {primary}', mode='insert')
+config.bind('<Ctrl-y>', 'insert-text {clipboard}', mode='insert')
 
 # close qutebrowser
 config.bind('<Ctrl-x><Ctrl-c>', 'quit') # warning: closes all windows

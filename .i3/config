@@ -1,4 +1,5 @@
 exec-always --no-startup-id dock
+exec --no-startup-id dock
 
 exec --no-startup-id emacs
 exec --no-startup-id qutebrowser
@@ -96,7 +97,6 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 workspace $ws1 output primary
 
-workspace $ws10 output DP-1 DP1 primary
 workspace $ws2 output DP-1 DP1 primary
 workspace $ws3 output DP-1 DP1 primary
 workspace $ws4 output DP-1 DP1 primary

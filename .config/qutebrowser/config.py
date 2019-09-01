@@ -234,7 +234,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        "osm": "https://www.openstreetmap.org/search?query={}",
                        'aw': 'https://wiki.archlinux.org/?search={}',
                        'w': 'https://en.wikipedia.org/?search={}',
-                       'car': 'https://carta.stanford.edu/course/{}'
+                       'car': 'https://fastcourses.org/?query={}'
 }
 
 c.content.host_blocking.whitelist = ['thepiratebay.org','adf.ly']

@@ -1,8 +1,8 @@
 #!/bin/sh
-dirs="music videos pictures books"
+dirs="music videos pictures books org"
 drive="/media/501b6655-ac04-4e1e-b921-67e8947b2d84"
 exclude_file=".cache/rsync-exclude.txt"
-excludes="$dirs dotfiles school Camera org"
+excludes="$dirs dotfiles school Camera"
 if [ -d "$drive" ]; then
     :> ~/$exclude_file
     for dir in $excludes
@@ -12,10 +12,9 @@ if [ -d "$drive" ]; then
 
     for dir in $dirs
     do
-        rsync -hauv --no-links --progress ~/$dir/ $drive/$dir
+        rsync -hauv --no-links --progress --exclude /.git ~/$dir/ $drive/$dir
     done
 
-    rsync -hauv --no-links --progress --exclude /.git ~/org/ $drive/org
     rsync -hauv --no-links --progress ~/Camera/ $drive/pictures/Camera
 
     for f in ~/videos/YouTube/*; do

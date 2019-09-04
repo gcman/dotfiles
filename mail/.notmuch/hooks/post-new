@@ -1,0 +1,4 @@
+#!/bin/sh
+# immediately archive all messages from me
+notmuch tag -unread -inbox +sent -- from:gmanohar@stanford.edu
+notmuch tag +canvas -- from:notifications@instructure.com

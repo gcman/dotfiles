@@ -1,4 +1,3 @@
-
 IMAPAccount uni
 Host outlook.office365.com
 User gmanohar@stanford.edu
@@ -11,14 +10,14 @@ IMAPStore uni-remote
 Account uni
 
 MaildirStore uni-local
-Path ~/mail/mbsyncmail/
-Inbox ~/mail/mbsyncmail/INBOX
+Path ~/mail/uni/
+Inbox ~/mail/uni/INBOX
 
 Channel uni
 Master :uni-remote:
 Slave :uni-local:
-Patterns "Sent Items" "INBOX" "Deleted Items"
-Create Slave
+Patterns "Sent Items" "INBOX" "Deleted Items" "Drafts"
+Create Both
 Sync All
 Expunge Both
 SyncState *

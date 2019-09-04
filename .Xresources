@@ -11,6 +11,7 @@ Emacs.toolBar: off
 Emacs.verticalScrollBars: off
 Emacs.cursorBlink: off
 Emacs.background: #002b36
+Emacs.foreground: #839496
 Emacs.font: Hack-10
 Emacs.mode-line.attributeForeground: #93a1a1
 Emacs.mode-line.attributeBackground: #002b36

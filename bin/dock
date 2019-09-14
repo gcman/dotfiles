@@ -21,6 +21,8 @@ fi
 
 xset r rate 125 60
 setxkbmap -option ctrl:nocaps
-udisksctl mount -b /dev/disk/by-uuid/501b6655-ac04-4e1e-b921-67e8947b2d84
+if mount | grep -q /dev/disk/by-uuid/$DRIVE_LOC ; then
+    udisksctl mount -b /dev/disk/by-uuid/$DRIVE_LOC
+fi
 xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Natural Scrolling Enabled" 1
 xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Tapping Enabled" 1

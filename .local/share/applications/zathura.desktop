@@ -1,3 +1,5 @@
 [Desktop Entry]
 Type=Application
 Exec=zathura %F
+MimeType=application/pdf;
+Type=Application

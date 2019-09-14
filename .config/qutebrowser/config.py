@@ -26,8 +26,9 @@ config.bind('<Ctrl-u><Ctrl-x><Ctrl-f>', 'set-cmd-text -s :open')
 config.bind('<Alt-w>', 'yank selection')
 config.bind('yu', 'yank url')
 config.bind('yf', 'set-cmd-text :open {url}')
-config.bind('<Ctrl-y>', 'insert-text {clipboard}', mode='insert')
+config.bind('<Ctrl-y>', 'fake-key <Ctrl-v>', mode='insert')
 config.bind('<Ctrl-y>', 'set-cmd-text -a {clipboard}', mode='command')
+config.bind('<Ctrl-k>', 'fake-key <Ctrl-x>', mode='insert')
 
 config.bind('f', 'set-cmd-text -s :open -t')
 config.bind('F', 'set-cmd-text -s :open')
@@ -50,7 +51,6 @@ config.bind('<Alt-b>', 'fake-key <Ctrl-Left>', mode='insert')
 config.bind('<Ctrl-d>', 'fake-key <Delete>', mode='insert')
 config.bind('<Alt-d>', 'fake-key <Ctrl-Delete>', mode='insert')
 config.bind('<Ctrl-w>', 'fake-key <Ctrl-Backspace>', mode='insert')
-config.bind('<Ctrl-y>', 'insert-text {clipboard}', mode='insert')
 
 # close qutebrowser
 config.bind('<Ctrl-x><Ctrl-c>', 'quit') # warning: closes all windows
@@ -205,6 +205,7 @@ config.bind('yg', 'spawn --userscript github-copy.py')
 # Org Capture
 config.bind('cl', "spawn emacsclient org-protocol://store-link?url={url} ;; yank inline {url}")
 config.bind('cn', "spawn emacsclient org-protocol://capture?template=n")
+config.bind('ca', "spawn emacsclient org-protocol://capture?template=a")
 config.bind('cp', "spawn emacsclient org-protocol://capture?template=q&title={title}")
 config.bind('cb', "spawn --userscript org-capture-bookmark.py")
 config.bind('cc', "hint code userscript org-capture-code.py")
@@ -237,10 +238,12 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        "osm": "https://www.openstreetmap.org/search?query={}",
                        'aw': 'https://wiki.archlinux.org/?search={}',
                        'w': 'https://en.wikipedia.org/?search={}',
-                       'car': 'https://fastcourses.org/?query={}'
+                       'car': 'https://fastcourses.org/?query={}',
+                       'stan': '{}.stanford.edu',
+                       'tpb': 'https://thepiratebay.org/search/{}'
 }
 
-c.content.host_blocking.whitelist = ['thepiratebay.org','adf.ly']
+c.content.host_blocking.whitelist = ['thepiratebay.org','adf.ly','aax-us-east.amazon-adsystem.com']
 c.auto_save.session = True
 c.content.autoplay = False
 c.content.pdfjs = True

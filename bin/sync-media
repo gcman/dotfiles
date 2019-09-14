@@ -1,6 +1,6 @@
 #!/bin/sh
-dirs="music videos pictures books org"
-drive="/media/501b6655-ac04-4e1e-b921-67e8947b2d84"
+dirs="music videos pictures books org records"
+drive="/media/$DRIVE_LOC"
 exclude_file=".cache/rsync-exclude.txt"
 excludes="$dirs dotfiles school Camera"
 if [ -d "$drive" ]; then

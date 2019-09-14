@@ -65,6 +65,7 @@ ttf-font-awesome
 ttf-hack
 ttf-symbola
 udisks2
+unarchiver
 unzip
 wildmidi
 xbindkeys

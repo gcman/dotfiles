@@ -4,7 +4,7 @@ Description=Intercept keypresses in Inkscape.
 [Service]
 Type=simple
 RemainAfterExit=no
-ExecStart=/usr/bin/python /home/gautam/inkscape-shortcut-manager/main.py
+ExecStart=/usr/bin/python /home/gautam/src/inkscape-shortcut-manager/main.py
 
 [Install]
 WantedBy=default.target

@@ -205,6 +205,7 @@ config.bind('yg', 'spawn --userscript github-copy.py')
 # Org Capture
 config.bind('cl', "spawn emacsclient org-protocol://store-link?url={url} ;; yank inline {url}")
 config.bind('cn', "spawn emacsclient org-protocol://capture?template=n")
+config.bind('ct', "spawn emacsclient org-protocol://capture?template=t")
 config.bind('ca', "spawn emacsclient org-protocol://capture?template=a")
 config.bind('cp', "spawn emacsclient org-protocol://capture?template=q&title={title}")
 config.bind('cb', "spawn --userscript org-capture-bookmark.py")
@@ -243,7 +244,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'tpb': 'https://thepiratebay.org/search/{}'
 }
 
-c.content.host_blocking.whitelist = ['thepiratebay.org','adf.ly','aax-us-east.amazon-adsystem.com']
+c.content.host_blocking.whitelist = ['thepiratebay.org','adf.ly','aax-us-east.amazon-adsystem.com','s.amazon-adsystem.com']
 c.auto_save.session = True
 c.content.autoplay = False
 c.content.pdfjs = True
@@ -269,4 +270,3 @@ c.aliases = {**c.aliases,
              "msg":"messages -t",
              "messages":"messages -t",
              "help":"help -t"}
-

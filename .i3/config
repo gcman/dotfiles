@@ -111,7 +111,7 @@ assign [class="^mpv$"] → $ws3
 assign [class="^Inkscape$"] → $ws6
 
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
-for_window [class="^Emacs$" title="^org-capture-pop-frame$"] move container to workspace $ws2
+for_window [class="^Emacs$" title="^org-capture-pop-frame$"] move container to workspace current
 
 focus_follows_mouse no
 
@@ -130,8 +130,8 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move right
+bindsym $mod+Shift+j move right
+bindsym $mod+Shift+k move left
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move down
 
@@ -183,6 +183,8 @@ bindsym --release Ctrl-Print exec --no-startup-id "scrot '/home/gautam/pictures/
 
 bindsym $mod+Return exec --no-startup-id emacsclient -e "(let ((current-prefix-arg '(4))) (call-interactively 'eshell-other-frame))"
 bindsym $mod+Shift+Return exec i3-sensible-terminal
+
+bindsym $mod+c exec --no-startup-id checkmail
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {

@@ -202,6 +202,9 @@ c.hints.selectors["code"] = [
 config.bind('yc', 'hint code userscript code-select.py')
 config.bind('yg', 'spawn --userscript github-copy.py')
 
+# Open PDF
+config.bind("PO", "spawn emacsclient -e \'(gm-pdf-open-external (gm/find-qutebrowser-download \"{title}\"))\'")
+
 # Org Capture
 config.bind('cl', "spawn emacsclient org-protocol://store-link?url={url} ;; yank inline {url}")
 config.bind('cn', "spawn emacsclient org-protocol://capture?template=n")

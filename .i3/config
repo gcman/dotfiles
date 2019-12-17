@@ -61,8 +61,8 @@ mode "$mode_monitors" {
 bindsym $mod+p exec --no-startup-id dock
 bindsym $mod+shift+p mode "$mode_monitors"
 
-bindsym XF86MonBrightnessDown exec --no-startup-id change-brightness -U 5
-bindsym XF86MonBrightnessUp exec --no-startup-id change-brightness -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id change-brightness - 5
+bindsym XF86MonBrightnessUp exec --no-startup-id change-brightness + 5
 
 set $ws1 "1"
 bindsym $mod+1 workspace $ws1

@@ -94,8 +94,8 @@ bindsym $mod+shift+p mode "$mode_monitors"
 #+END_SRC
 Adjusting brightness.
 #+BEGIN_SRC conf
-bindsym XF86MonBrightnessDown exec --no-startup-id change-brightness -U 5
-bindsym XF86MonBrightnessUp exec --no-startup-id change-brightness -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id change-brightness - 5
+bindsym XF86MonBrightnessUp exec --no-startup-id change-brightness + 5
 #+END_SRC
 ** Workspaces
 A simple script + Org Babel tangling lets us save a lot of repetition over the

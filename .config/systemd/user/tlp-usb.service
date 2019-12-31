@@ -1,0 +1,11 @@
+[Unit]
+Description=Setup tlp usb
+
+[Service]
+Type=oneshot
+User=root
+ExecStar
+t=/usr/bin/tlp usb
+
+[Install]
+WantedBy=default.target

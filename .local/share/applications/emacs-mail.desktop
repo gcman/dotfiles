@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Emacs Mail
-Comment=E-Mail client
-Exec=emacs-mail %u
-MimeType=x-scheme-handler/mailto;
-Type=Application

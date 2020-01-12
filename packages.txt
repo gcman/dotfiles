@@ -57,7 +57,6 @@ stow
 syncthing
 texlive-localmanager-git
 texlive-most
-tlp
 tpacpi-bat
 transmission-cli
 ttf-dejavu

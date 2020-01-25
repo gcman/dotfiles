@@ -48,10 +48,11 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $mode_monitors Monitor setup: (0) laptop only, (1) external
+set $mode_monitors Monitor setup: (0) laptop only, (1) external (2) mirror
 mode "$mode_monitors" {
   bindsym 0 exec --no-startup-id "xrandr --output DP1 --off", mode "default"
   bindsym 1 exec --no-startup-id "/home/gautam/bin/dock", mode "default"
+  bindsym 2 exec "xrandr --output DP1 --same-as eDP1 --scale 2x2 --scale-from 3200x1800"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"

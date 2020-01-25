@@ -17,6 +17,7 @@ emacs-pdf-tools-git
 evince
 exit
 gconf
+gdb
 git
 gnupg
 htop
@@ -43,6 +44,7 @@ python-matplotlib
 python-numpy
 python-pip
 python-tldextract
+qtcreator
 qutebrowser-git
 redshift
 reflector

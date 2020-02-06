@@ -9,12 +9,13 @@ function connect(){
 
 function disconnect(){
     xrandr --output $MONITOR --off
+    amixer -c 0 set Master mute
 }
 
 if [ $STATUS == "connected" ]; then
     connect
 elif [ $STATUS == "disconnected" ]; then
-  disconnect
+    disconnect
 else
   exit
 fi

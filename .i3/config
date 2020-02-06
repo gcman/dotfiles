@@ -110,6 +110,7 @@ workspace $ws9 output primary
 assign [class="^qutebrowser$"] → $ws2
 assign [class="^mpv$"] → $ws3
 assign [class="^Inkscape$"] → $ws6
+assign [class="^qtcreator$"] → $ws6
 
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
 for_window [class="^Emacs$" title="^org-capture-pop-frame$"] move container to workspace current

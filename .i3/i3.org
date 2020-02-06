@@ -140,6 +140,7 @@ Assign windows to certain workspaces.
 assign [class="^qutebrowser$"] → $ws2
 assign [class="^mpv$"] → $ws3
 assign [class="^Inkscape$"] → $ws6
+assign [class="^qtcreator$"] → $ws6
 #+END_SRC
 Assign certain properties to windows.
 #+BEGIN_SRC conf

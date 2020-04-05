@@ -22,3 +22,15 @@ export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
 
 export MPD_HOST="localhost"
 export MPD_PORT="6601"
+
+case "$TERM" in
+    "dumb")
+        PS1="$ "
+        ;;
+    xterm*|rxvt*|eterm*|screen*)
+        tty -s && export PS1="some crazy prompt stuff"
+        ;;
+    *)
+        PS1="$ "
+        ;;
+esac

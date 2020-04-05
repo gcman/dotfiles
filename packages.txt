@@ -27,6 +27,7 @@ i3status
 inkscape
 libinput
 libsecret
+llvm
 mbsync-git
 mpc
 mpd
@@ -68,6 +69,7 @@ ttf-symbola
 udisks2
 unarchiver
 unzip
+valgrind
 wildmidi
 xbindkeys
 xclip

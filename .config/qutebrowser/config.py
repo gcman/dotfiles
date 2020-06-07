@@ -61,7 +61,6 @@ config.bind('<Ctrl-x><Ctrl-c>', 'quit') # warning: closes all windows
 config.bind('<Ctrl-x>0', 'tab-close')
 config.bind('<Ctrl-x>k', 'tab-close')
 config.bind('d', 'tab-close')
-config.bind('i', 'tab-close')
 config.bind('D', 'tab-clone')
 config.bind('I', 'tab-close')
 config.bind('u', 'undo')

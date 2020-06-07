@@ -10,4 +10,4 @@ map i recolor
 map p print
 map s search
 map S adjust_window width
-map space PgDn
+map <Space> PageDown

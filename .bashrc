@@ -28,7 +28,7 @@ case "$TERM" in
         PS1="$ "
         ;;
     xterm*|rxvt*|eterm*|screen*)
-        tty -s && export PS1="some crazy prompt stuff"
+        tty -s && export PS1="$ "
         ;;
     *)
         PS1="$ "

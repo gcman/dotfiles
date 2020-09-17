@@ -2,7 +2,7 @@
 dirs="music videos pictures books org records"
 drive="/media/$DRIVE_LOC"
 exclude_file=".cache/rsync-exclude.txt"
-excludes="$dirs dotfiles school Camera"
+excludes="$dirs dotfiles school"
 if [ -d "$drive" ]; then
     :> ~/$exclude_file
     for dir in $excludes

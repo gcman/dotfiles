@@ -6,15 +6,15 @@ msgId="991049"
 if [[ "$@" == "toggle" ]]; then
     amixer set Master "$@" > /dev/null
 else
-    amixer -c 0 set Master "$@" > /dev/null
+    amixer set Master "$@" > /dev/null
 fi
 
 
 # Query amixer for the current volume and whether or not the speaker is muted
-volume="$(amixer -c 0 get Master | tail -1 | awk '{print $4}' | sed 's/[^0-9]*//g'
-)"
-mute="$(amixer -c 0 get Master | tail -1 | awk '{print $6}' | sed 's/[^a-z]*//g')"
-if [[ $volume == 0 || "$mute" == "off" ]]; then
+volume="$(amixer -D pulse get Master | awk -F 'Left:|[][]' 'BEGIN {RS=""}{ print $3 }')"
+volume="${volume::-1}"
+
+if [[ $volume == 0  ]]; then
     # Show the sound muted notification
     dunstify -a "change-volume" -i audio-volume-muted -r "$msgId" "Volume muted"
 else

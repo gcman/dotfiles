@@ -4,9 +4,9 @@ c.bindings.default = {}
 def bind_chained(key, *commands):
     config.bind(key, ' ;; '.join(commands))
 
-# Don't have to always press Shift    
+# Don't have to always press Shift
 config.bind(';', 'set-cmd-text :')
-    
+
 # Reload config
 config.bind('<Ctrl-x><Ctrl-l>', 'config-source')
 
@@ -261,10 +261,11 @@ c.new_instance_open_target = "tab-bg-silent"
 c.content.geolocation = 'ask'
 c.content.headers.do_not_track = True
 
-c.fonts.monospace = '"Hack", "xos4 Terminus", Terminus, Monospace, "DejaVu Sans Mono", Monaco, "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", Courier, "Liberation Mono", monospace, Fixed, Consolas, Terminal'
+c.fonts.default_family = ["Hack", "xos4 Terminus", "Terminus", "Monospace", "DejaVu Sans Mono", "Monaco", "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", "Courier", "Liberation Mono"]
 c.qt.highdpi = True
 
 c.downloads.remove_finished = 1000
+c.downloads.location.directory = "~/Downloads/"
 c.tabs.mousewheel_switching = False
 
 c.content.headers.accept_language =  "en-US,en;q=0.5"

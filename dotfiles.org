@@ -148,16 +148,22 @@ ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="/usr/bin/iw dev $name set 
 * Default =xdg= applications
 Sometimes the defaults aren't configured well.
 #+NAME: xdg-applications
-| mpv                       | audio/flac              |
-| mpv                       | audio/mpeg              |
-| mpv                       | video/m2v               |
-| zathura                   | application/pdf         |
-| notmuch-emacs-mua.desktop | x-scheme-handler/mailto |
+| mpv                         | audio/flac              |
+| mpv                         | audio/mpeg              |
+| mpv                         | video/m2v               |
+| mpv                         | video/mp4               |
+| zathura                     | application/pdf         |
+| notmuch-emacs-mua           | x-scheme-handler/mailto |
+| org.qutebrowser.qutebrowser | x-scheme-handler/http   |
+| org.qutebrowser.qutebrowser | x-scheme-handler/https  |
 #+BEGIN_SRC sh apps=xdg-applications
 for app in $apps; do
     xdg-mime default ${app[0]}.desktop ${app[1]}
 done
 #+END_SRC
+
+#+RESULTS:
+
 * Options
 # Local variables:
 # eval: (add-hook 'after-save-hook 'org-babel-tangle nil t)

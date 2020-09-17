@@ -8,13 +8,10 @@ behaviour.
 exec-always --no-startup-id dock
 exec --no-startup-id dock
 #+END_SRC
-Then I start up Emacs and the browser.
+Then I start up Emacs and the browser, and make the screen not too blue.
 #+BEGIN_SRC conf
 exec --no-startup-id emacs
 exec --no-startup-id qutebrowser
-#+END_SRC
-Then I make the screen emit a bearable amount of blue light.
-#+BEGIN_SRC conf
 exec --no-startup-id redshift
 #+END_SRC
 Set up the torrent client.
@@ -138,7 +135,8 @@ done
 Assign windows to certain workspaces.
 #+BEGIN_SRC conf
 assign [class="^qutebrowser$"] → $ws2
-assign [class="^mpv$"] → $ws3
+assign [class="^mpv$"] → $ws5
+assign [class="Slack"] → $ws4
 assign [class="^Inkscape$"] → $ws6
 assign [class="^qtcreator$"] → $ws6
 #+END_SRC
@@ -219,8 +217,8 @@ Emacs. It falls back on =mpc=. This way, the elapsed time of a song is correct i
 Emacs.
 #+BEGIN_SRC conf
 bindsym XF86AudioMute exec --no-startup-id "change-volume toggle"
-bindsym XF86AudioLowerVolume exec --no-startup-id "change-volume 3dB- unmute"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "change-volume 3dB+ unmute"
+bindsym XF86AudioLowerVolume exec --no-startup-id "change-volume 3%- unmute"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "change-volume 3%+ unmute"
 
 bindsym XF86AudioPrev exec --no-startup-id music-control prev
 bindsym XF86AudioNext exec --no-startup-id music-control next

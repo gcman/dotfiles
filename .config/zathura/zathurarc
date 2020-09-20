@@ -1,6 +1,5 @@
 set selection-clipboard "clipboard"
-set window-title-basename true
-set recolor true
+set window-title-basename truebb
 set recolor-darkcolor "#839496"
 set recolor-lightcolor "#002b36"
 set smooth-scroll true

@@ -2,3 +2,5 @@
 # immediately archive all messages from me
 notmuch tag -unread -inbox +sent -- from:gmanohar@stanford.edu
 notmuch tag +canvas -- from:notifications@instructure.com
+
+notmuch tag -unread -inbox -- from:no-reply@gradescope.com subject:'Successfully Submitted'

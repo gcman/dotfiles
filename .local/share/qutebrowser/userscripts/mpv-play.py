@@ -6,7 +6,7 @@ from os import environ
 def send_command_to_qute(command):
     with open(environ.get("QUTE_FIFO"), "w") as f:
         f.write(command)
-        
+
 def main():
     mode = environ.get("QUTE_MODE")
     url = environ.get("QUTE_URL")
@@ -19,6 +19,6 @@ def main():
     title = "".join("{:02x}".format(ord(c)) for c in title)
     command = "".format(url,title)
     send_command_to_qute("spawn emacsclient -e '(gm/play-with-mpv \"{}\" (hex-to-string \"{}\"))'".format(url,title))
-    
+
 if __name__ == "__main__":
     main()

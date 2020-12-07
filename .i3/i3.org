@@ -1,49 +1,53 @@
 #+PROPERTY: header-args :tangle config
 * Startup
+This cleans up the syntax a little.
+#+begin_src conf
+set $exec exec --no-startup-id
+#+end_src
 The first thing I do is set up my screens. This is a script in my =~/bin= that
 checks if I have an external monitor plugged in and uses =xrandr= accordingly.
 This script also sets some keybindings, key repeat delay and speed, and trackpad
 behaviour.
-#+BEGIN_SRC conf
+#+begin_src conf
 exec-always --no-startup-id dock
-exec --no-startup-id dock
-#+END_SRC
+$exec dock
+#+end_src
 Then I start up Emacs and the browser, and make the screen not too blue.
-#+BEGIN_SRC conf
-exec --no-startup-id emacs
-exec --no-startup-id qutebrowser
-exec --no-startup-id redshift
-#+END_SRC
+#+begin_src conf
+$exec emacs
+$exec qutebrowser
+$exec redshift
+#+end_src
 Set up the torrent client.
-#+BEGIN_SRC conf
-exec --no-startup-id transmission-daemon
-#+END_SRC
+#+begin_src conf
+$exec transmission-daemon
+#+end_src
 * Basic Controls
 This corresponds to the Super/Windows key on my keyboard.
-#+BEGIN_SRC conf
+#+begin_src conf
 set $mod Mod4
-#+END_SRC
+#+end_src
 Using the mouse with this modifier drags floating windows.
-#+BEGIN_SRC conf
+#+begin_src conf
 floating_modifier $mod
-#+END_SRC
+#+end_src
 I couldn't get Hack to work right with this.
-#+BEGIN_SRC conf
+#+begin_src conf
 font pango:monospace 8
-#+END_SRC
+#+end_src
 This removes borders and titlebars entirely. At first, I thought this would be
 disorienting, but I've honestly gotten used to it.
-#+BEGIN_SRC conf
+#+begin_src conf
 default_border none
 hide_edge_borders both
-#+END_SRC
+#+end_src
 I start apps with =rofi=.
-#+BEGIN_SRC conf
+#+begin_src conf
 bindsym $mod+d exec rofi -show combi
 bindsym $mod+b exec rofi -show window
-#+END_SRC
+#+end_src
 Default basic bindings.
-#+BEGIN_SRC conf
+#+begin_src conf
 # kill focused window
 bindsym $mod+q kill
 # split in horizontal orientation
@@ -71,15 +75,15 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
-#+END_SRC
+#+end_src
 * Graphics
 ** Displays
 Sometimes I need to manually dock or undock.
-#+BEGIN_SRC conf
+#+begin_src conf
 set $mode_monitors Monitor setup: (0) laptop only, (1) external (2) mirror
 mode "$mode_monitors" {
-  bindsym 0 exec --no-startup-id "xrandr --output DP1 --off", mode "default"
-  bindsym 1 exec --no-startup-id "/home/gautam/bin/dock", mode "default"
+  bindsym 0 $exec "xrandr --output DP1 --off", mode "default"
+  bindsym 1 $exec "/home/gautam/bin/dock", mode "default"
   bindsym 2 exec "xrandr --output DP1 --same-as eDP1 --scale 2x2 --scale-from 3200x1800"
 
   # back to normal: Enter or Escape
@@ -87,24 +91,24 @@ mode "$mode_monitors" {
   bindsym Escape mode "default"
 }
 
-bindsym $mod+p exec --no-startup-id dock
+bindsym $mod+p $exec dock
 bindsym $mod+shift+p mode "$mode_monitors"
-#+END_SRC
+#+end_src
 Adjusting brightness.
-#+BEGIN_SRC conf
-bindsym XF86MonBrightnessDown exec --no-startup-id change-brightness - 5
-bindsym XF86MonBrightnessUp exec --no-startup-id change-brightness + 5
-#+END_SRC
+#+begin_src conf
+bindsym XF86MonBrightnessDown $exec change-brightness - 5
+bindsym XF86MonBrightnessUp $exec change-brightness + 5
+#+end_src
 ** Workspaces
 A simple script + Org Babel tangling lets us save a lot of repetition over the
 default config.
-#+BEGIN_SRC conf :noweb yes
+#+begin_src conf :noweb yes
 <<workspace-bindings()>>
-#+END_SRC
+#+end_src
 The one thing to be careful about is that we don't try to bind =$mod+10=, because
 there is no "10" key.
 #+NAME: workspace-bindings
-#+BEGIN_SRC sh :tangle no :results output :eval yes
+#+begin_src sh :tangle no :results output :eval yes
 for num in $(seq 1 10); do
     if [ $num == 10 ]; then
         bind=0
@@ -115,48 +119,48 @@ for num in $(seq 1 10); do
     echo "bindsym \$mod+$bind workspace \$ws$num"
     echo "bindsym \$mod+Shift+$bind move container to workspace \$ws$num"
 done
-#+END_SRC
+#+end_src
 Assign workspaces to certain displays.
-#+BEGIN_SRC conf
+#+begin_src conf
 workspace $ws1 output primary
-#+END_SRC
-#+BEGIN_SRC conf :noweb yes
+#+end_src
+#+begin_src conf :noweb yes
 <<workspace-assignments()>>
-#+END_SRC
+#+end_src
 #+NAME: workspace-assignments
-#+BEGIN_SRC sh :tangle no :results output :eval yes
+#+begin_src sh :tangle no :results output :eval yes
 for num in $(seq 2 6); do
     echo "workspace \$ws$num output DP-1 DP1 primary"
 done
 for num in $(seq 7 9); do
     echo "workspace \$ws$num output primary"
 done
-#+END_SRC
+#+end_src
 Assign windows to certain workspaces.
-#+BEGIN_SRC conf
+#+begin_src conf
 assign [class="^qutebrowser$"] → $ws2
-assign [class="^mpv$"] → $ws5
+assign [class="^mpv$"] → $ws4
 assign [class="Slack"] → $ws4
 assign [class="^Inkscape$"] → $ws6
 assign [class="^qtcreator$"] → $ws6
-#+END_SRC
+#+end_src
 Assign certain properties to windows.
-#+BEGIN_SRC conf
+#+begin_src conf
 for_window [class="^Emacs$" title="^floatingEmacs$"] floating enable
 for_window [class="^Emacs$" title="^org-capture-pop-frame$"] move container to workspace current
-#+END_SRC
+#+end_src
 I really like having a window open on one monitor and using the keyboard to
 control stuff on another monitor.
-#+BEGIN_SRC conf
+#+begin_src conf
 focus_follows_mouse no
-#+END_SRC
+#+end_src
 This is a cool script that lets me swap the workspaces on my monitors.
-#+BEGIN_SRC conf
-bindsym $mod+shift+s exec --no-startup-id $HOME/.i3/i3-display-swap.sh
-#+END_SRC
+#+begin_src conf
+bindsym $mod+shift+s $exec $HOME/.i3/i3-display-swap.sh
+#+end_src
 ** Window Management
 All default stuff.
-#+BEGIN_SRC conf
+#+begin_src conf
 # change focus
 bindsym $mod+j focus right
 bindsym $mod+k focus left
@@ -180,9 +184,9 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move right
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move down
-#+END_SRC
+#+end_src
 Resize windows.
-#+BEGIN_SRC conf
+#+begin_src conf
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -209,62 +213,62 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-#+END_SRC
+#+end_src
 * Utilities
 ** Audio
 The script =music-control= is in my =~/bin=. If it can, it connects to =emms= in
 Emacs. It falls back on =mpc=. This way, the elapsed time of a song is correct in
 Emacs.
-#+BEGIN_SRC conf
-bindsym XF86AudioMute exec --no-startup-id "change-volume toggle"
-bindsym XF86AudioLowerVolume exec --no-startup-id "change-volume 3%- unmute"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "change-volume 3%+ unmute"
+#+begin_src conf
+bindsym XF86AudioMute $exec "change-volume toggle"
+bindsym XF86AudioLowerVolume $exec "change-volume 3%- unmute"
+bindsym XF86AudioRaiseVolume $exec "change-volume 3%+ unmute"
 
-bindsym XF86AudioPrev exec --no-startup-id music-control prev
-bindsym XF86AudioNext exec --no-startup-id music-control next
-bindsym XF86AudioPlay exec --no-startup-id music-control toggle
-bindsym Pause exec --no-startup-id music-control toggle
-#+END_SRC
+bindsym XF86AudioPrev $exec music-control prev
+bindsym XF86AudioNext $exec music-control next
+bindsym XF86AudioPlay $exec music-control toggle
+bindsym Pause $exec music-control toggle
+#+end_src
 ** Screenshots
 Again, we use Babel to save some repetition.
-#+BEGIN_SRC conf :noweb yes
+#+begin_src conf :noweb yes
 <<screenshot-commands()>>
-#+END_SRC
+#+end_src
 The Python variable =commands= stores the binding and the options to =scrot=, the
 program we will use for taking the screenshot.
-#+BEGIN_SRC conf :tangle no
-bindsym --release BIND exec --no-startup-id "scrot OPTIONS"
-#+END_SRC
+#+begin_src conf :tangle no
+bindsym --release BIND $exec "scrot OPTIONS"
+#+end_src
 The values =path= and =target= are defined in the Org source block.
 #+NAME: screenshot-commands
-#+BEGIN_SRC python :eval yes :tangle no :results output :var path="'/home/gautam/pictures/screenshots/%F_%T_$wx$h.png'" target="'xclip -selection clipboard -target image/png -i $f'"
+#+begin_src python :eval yes :tangle no :results output :var path="'/home/gautam/pictures/screenshots/%F_%T_$wx$h.png'" target="'xclip -selection clipboard -target image/png -i $f'"
 commands = {
     "Print": "-s {} -e {}".format(path,target),
     "Shift-Print": "{} -e {}".format(path,target),
     "Ctrl-Print": "{}".format(path)}
 
 for bind in commands:
-    print("bindsym --release {} exec --no-startup-id \"scrot {}\"".format(bind,commands[bind]))
-#+END_SRC
+    print("bindsym --release {} $exec \"scrot {}\"".format(bind,commands[bind]))
+#+end_src
 ** Terminal
-#+BEGIN_SRC conf
-bindsym $mod+Return exec --no-startup-id emacsclient -e "(let ((current-prefix-arg '(4))) (call-interactively 'eshell-other-frame))"
+#+begin_src conf
+bindsym $mod+Return $exec emacsclient -e "(let ((current-prefix-arg '(4))) (call-interactively 'eshell-other-frame))"
 bindsym $mod+Shift+Return exec xterm
-#+END_SRC
+#+end_src
 ** Mail
-#+BEGIN_SRC conf
-bindsym $mod+c exec --no-startup-id checkmail
-#+END_SRC
+#+begin_src conf
+bindsym $mod+c $exec checkmail
+#+end_src
 ** Shutdown Menu
-#+BEGIN_SRC conf
+#+begin_src conf
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id slock, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym l $exec slock, mode "default"
+    bindsym e $exec i3-msg exit, mode "default"
+    bindsym s $exec systemctl suspend, mode "default"
+    bindsym h $exec systemctl hibernate, mode "default"
+    bindsym r $exec systemctl reboot, mode "default"
+    bindsym Shift+s $exec systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -273,23 +277,23 @@ mode "$mode_system" {
 
 bindsym $mod+Pause mode "$mode_system"
 bindsym $mod+Delete mode "$mode_system"
-#+END_SRC
+#+end_src
 ** Reloading i3
-#+BEGIN_SRC conf
+#+begin_src conf
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-#+END_SRC
+#+end_src
 * =i3bar=
 The official i3 status bar.
-#+BEGIN_SRC conf
+#+begin_src conf
 bar {
     status_command i3status --config=~/.i3/.i3status.conf
 }
-#+END_SRC
+#+end_src
 * Options
 # Local variables:
 # eval: (add-hook 'after-save-hook 'org-babel-tangle nil t)

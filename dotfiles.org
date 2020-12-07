@@ -156,6 +156,8 @@ Sometimes the defaults aren't configured well.
 | notmuch-emacs-mua           | x-scheme-handler/mailto |
 | org.qutebrowser.qutebrowser | x-scheme-handler/http   |
 | org.qutebrowser.qutebrowser | x-scheme-handler/https  |
+| pqiv                        | image/jpeg              |
+| pqiv                        | image/png               |
 #+BEGIN_SRC sh apps=xdg-applications
 for app in $apps; do
     xdg-mime default ${app[0]}.desktop ${app[1]}

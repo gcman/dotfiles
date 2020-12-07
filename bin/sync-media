@@ -23,7 +23,7 @@ if [ -d "$drive" ]; then
         fi
     done
 
-    rsync -hauv --progress --exclude-from ".cache/rsync-exclude.txt" ~/ $drive/home
+    rsync -hauv --progress --exclude-from ~/$exclude_file ~/ $drive/home
 else
     echo "Drive location not found!"
 fi

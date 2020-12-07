@@ -1,3 +1,5 @@
+from qutebrowser.api import interceptor
+
 # Unbind some standard qutebrowser bindings
 c.bindings.default = {}
 
@@ -203,6 +205,8 @@ c.hints.selectors["code"] = [
 config.bind('yc', 'hint code userscript code-select.py')
 config.bind('yg', 'spawn --userscript github-copy.py')
 
+config.bind("RDO", "hint --rapid links download")
+
 # Open PDF
 config.bind("PO", "spawn emacsclient -e \'(gm-pdf-open-external (gm/find-qutebrowser-download \"{title}\"))\'")
 
@@ -243,7 +247,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        "osm": "https://www.openstreetmap.org/search?query={}",
                        'aw': 'https://wiki.archlinux.org/?search={}',
                        'w': 'https://en.wikipedia.org/?search={}',
-                       'car': 'https://fastcourses.org/?query={}',
+                       'car': 'https://carta.stanford.edu/{}',
                        'stan': '{}.stanford.edu',
                        'tpb': 'https://thepiratebay.org/search/{}'
 }
@@ -275,3 +279,21 @@ c.aliases = {**c.aliases,
              "msg":"messages -t",
              "messages":"messages -t",
              "help":"help -t"}
+
+c.qt.args = ['disable-logging', 'disable-reading-from-canvas']
+
+# Youtube ad blocker
+def filter_yt(info: interceptor.Request):
+    """Block the given request if necessary."""
+    url = info.request_url
+    if (
+        url.host() == "www.youtube.com"
+        and url.path() == "/get_video_info"
+        and "&adformat=" in url.query()
+    ):
+        info.block()
+
+
+interceptor.register(filter_yt)
+
+config.load_autoconfig(False)

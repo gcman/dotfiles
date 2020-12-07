@@ -4,6 +4,7 @@ XTerm.vt100.faceName: Hack:size=12:antialias=true
 XTerm.vt100.font: 7x13
 XTerm.vt100.foreground: rgb:93/a1/a1
 XTerm.vt100.background: rgb:00/2b/36
+XTerm*selectToClipboard: true
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull

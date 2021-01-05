@@ -249,7 +249,8 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        'w': 'https://en.wikipedia.org/?search={}',
                        'car': 'https://carta.stanford.edu/{}',
                        'stan': '{}.stanford.edu',
-                       'tpb': 'https://thepiratebay.org/search/{}'
+                       'tpb': 'https://thepiratebay.org/search/{}',
+                       'libgen': 'http://libgen.rs/search.php?req={}',
 }
 
 c.content.host_blocking.whitelist = ['thepiratebay.org','adf.ly','aax-us-east.amazon-adsystem.com','s.amazon-adsystem.com']

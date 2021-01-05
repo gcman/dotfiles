@@ -129,10 +129,10 @@ workspace $ws1 output primary
 #+end_src
 #+NAME: workspace-assignments
 #+begin_src sh :tangle no :results output :eval yes
-for num in $(seq 2 6); do
+for num in $(seq 1 5); do
     echo "workspace \$ws$num output DP-1 DP1 primary"
 done
-for num in $(seq 7 9); do
+for num in $(seq 6 9); do
     echo "workspace \$ws$num output primary"
 done
 #+end_src

@@ -99,11 +99,12 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 workspace $ws1 output primary
 
+workspace $ws1 output DP-1 DP1 primary
 workspace $ws2 output DP-1 DP1 primary
 workspace $ws3 output DP-1 DP1 primary
 workspace $ws4 output DP-1 DP1 primary
 workspace $ws5 output DP-1 DP1 primary
-workspace $ws6 output DP-1 DP1 primary
+workspace $ws6 output primary
 workspace $ws7 output primary
 workspace $ws8 output primary
 workspace $ws9 output primary
@@ -181,7 +182,9 @@ bindsym XF86AudioNext $exec music-control next
 bindsym XF86AudioPlay $exec music-control toggle
 bindsym Pause $exec music-control toggle
 
-nil
+bindsym --release Print $exec "scrot -s '/home/gautam/pictures/screenshots/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
+bindsym --release Shift-Print $exec "scrot '/home/gautam/pictures/screenshots/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
+bindsym --release Ctrl-Print $exec "scrot '/home/gautam/pictures/screenshots/%F_%T_$wx$h.png'"
 
 bindsym $mod+Return $exec emacsclient -e "(let ((current-prefix-arg '(4))) (call-interactively 'eshell-other-frame))"
 bindsym $mod+Shift+Return exec xterm

@@ -22,6 +22,7 @@ fi
 
 xset r rate 125 60
 setxkbmap -option ctrl:nocaps
+
 if mount | grep -q /dev/disk/by-uuid/$DRIVE_LOC ; then
     udisksctl mount -b /dev/disk/by-uuid/$DRIVE_LOC
 fi

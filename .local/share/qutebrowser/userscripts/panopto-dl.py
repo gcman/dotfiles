@@ -21,7 +21,7 @@ def main():
                     id_arr.append(line.split("?id=",1)[1].split("\"",1)[0])
         for i,url in enumerate(id_arr):
             send_command_to_qute("open -t https://stanford-pilot.hosted.panopto.com/Panopto/Podcast/Social/{}.mp4".format(url))
-            time.sleep(1.5)
+            time.sleep(3)
             send_command_to_qute("spawn --userscript panopto-dl.py lecture{}".format(i+1))
             time.sleep(0.25)
             send_command_to_qute("tab-close")

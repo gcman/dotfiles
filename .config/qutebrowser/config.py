@@ -6,6 +6,8 @@ c.bindings.default = {}
 def bind_chained(key, *commands):
     config.bind(key, ' ;; '.join(commands))
 
+config.load_autoconfig(False)
+
 # Don't have to always press Shift
 config.bind(';', 'set-cmd-text :')
 
@@ -37,9 +39,9 @@ config.bind('<Ctrl-k>', 'fake-key <Ctrl-x>', mode='insert')
 config.bind('f', 'set-cmd-text -s :open -t')
 config.bind('F', 'set-cmd-text -s :open')
 
-config.bind('<Escape>', 'leave-mode', mode='insert')
-config.bind('<Ctrl-g>', 'leave-mode', mode='insert')
-config.bind('<Ctrl-m>', 'enter-mode insert')
+config.bind('<Escape>', 'mode-leave', mode='insert')
+config.bind('<Ctrl-g>', 'mode-leave', mode='insert')
+config.bind('<Ctrl-m>', 'mode-enter insert')
 
 # emacs like bindings
 config.bind('<ctrl-h>', 'fake-key <backspace>', mode='insert')
@@ -78,16 +80,15 @@ config.bind('r', 'reload')
 config.bind('s', 'set-cmd-text /', mode='normal')
 config.bind('/', 'set-cmd-text /', mode='normal')
 config.bind('?', 'set-cmd-text ?', mode='normal')
-config.bind('<Ctrl-s>', 'set-cmd-text /', mode='normal')
 config.bind('<Ctrl-r>', 'set-cmd-text ?', mode='normal')
-config.bind('<Ctrl-s>', 'search-next', mode='command')
-config.bind('<Ctrl-r>', 'search-prev', mode='command')
+config.bind('<Ctrl-s>', 'search-next', mode='normal')
+config.bind('<Ctrl-r>', 'search-prev', mode='normal')
 
 ## Bindings for caret mode
-config.bind('g', 'enter-mode caret')
-config.bind('g', 'leave-mode', mode='caret')
-config.bind('<Escape>', 'leave-mode', mode='caret')
-config.bind('<Ctrl-g>', 'leave-mode', mode='caret')
+config.bind('g', 'mode-enter caret')
+config.bind('g', 'mode-leave', mode='caret')
+config.bind('<Escape>', 'mode-leave', mode='caret')
+config.bind('<Ctrl-g>', 'mode-leave', mode='caret')
 config.bind('<Ctrl-t>', 'toggle-selection', mode='caret')
 config.bind('w', 'yank selection', mode='caret')
 config.bind('W', 'move-to-start-of-document ;; toggle-selection ;; move-to-end-of-document ;; yank selection', mode='caret')
@@ -95,7 +96,7 @@ config.bind('<Alt-w>', 'yank selection', mode='caret')
 config.bind('<Ctrl-a>', 'move-to-end-of-line', mode='caret')
 config.bind('<Ctrl-e>', 'move-to-start-of-line', mode='caret')
 config.bind('<Ctrl-Space>', 'drop-selection', mode='caret')
-config.bind('<Escape>', 'leave-mode', mode='caret')
+config.bind('<Escape>', 'mode-leave', mode='caret')
 config.bind('<Ctrl-b>', 'move-to-prev-char', mode='caret')
 config.bind('<Ctrl-n>', 'move-to-next-line', mode='caret')
 config.bind('<Ctrl-p>', 'move-to-prev-line', mode='caret')
@@ -111,7 +112,7 @@ config.bind('Y', 'yank selection -s', mode='caret')
 config.bind('[', 'move-to-start-of-prev-block', mode='caret')
 config.bind(']', 'move-to-start-of-next-block', mode='caret')
 config.bind('b', 'move-to-prev-word', mode='caret')
-config.bind('c', 'enter-mode normal', mode='caret')
+config.bind('c', 'mode-enter normal', mode='caret')
 config.bind('e', 'move-to-end-of-word', mode='caret')
 config.bind('gg', 'move-to-start-of-document', mode='caret')
 config.bind('y', 'yank selection', mode='caret')
@@ -131,8 +132,8 @@ config.bind('<Up>', 'command-history-prev', mode='command')
 config.bind('<Alt-p>', 'command-history-prev', mode='command')
 config.bind('<Down>', 'command-history-next', mode='command')
 config.bind('<Alt-n>', 'command-history-next', mode='command')
-config.bind('<Escape>', 'leave-mode', mode='command')
-config.bind('<Ctrl-g>', 'leave-mode', mode='command')
+config.bind('<Escape>', 'mode-leave', mode='command')
+config.bind('<Ctrl-g>', 'mode-leave', mode='command')
 config.bind('<Return>', 'command-accept', mode='command')
 config.bind('<Ctrl-m>', 'command-accept', mode='command')
 config.bind('<Shift-Tab>', 'completion-item-focus prev', mode='command')
@@ -158,8 +159,8 @@ config.bind('<Ctrl-p>',       'prompt-item-focus prev', mode='prompt')
 config.bind('<Up>',           'prompt-item-focus prev', mode='prompt')
 config.bind('<Ctrl-n>',       'prompt-item-focus next', mode='prompt')
 config.bind('<Down>',         'prompt-item-focus next', mode='prompt')
-config.bind('<Ctrl-g>',       'leave-mode',             mode='prompt')
-config.bind('<Escape>',       'leave-mode',             mode='prompt')
+config.bind('<Ctrl-g>',       'mode-leave',             mode='prompt')
+config.bind('<Escape>',       'mode-leave',             mode='prompt')
 config.bind('<Ctrl-m>',       'prompt-accept',          mode='prompt')
 config.bind('<Return>',       'prompt-accept',          mode='prompt')
 config.bind('<Ctrl-Shift-i>', 'prompt-item-focus prev', mode='prompt')
@@ -183,8 +184,8 @@ config.bind('o', 'hint')
 config.bind('bo', 'hint links tab-bg')
 config.bind('O', 'hint --rapid links tab-bg')
 
-config.bind('<Escape>', 'leave-mode', mode='hint')
-config.bind('<Ctrl-g>', 'leave-mode', mode='hint')
+config.bind('<Escape>', 'mode-leave', mode='hint')
+config.bind('<Ctrl-g>', 'mode-leave', mode='hint')
 config.bind('<Return>', 'follow-hint', mode='hint')
 config.bind('<Ctrl-m>', 'follow-hint', mode='hint')
 
@@ -233,27 +234,22 @@ config.bind('tO', "hint --rapid links spawn emacsclient -e '(gm/transmission-add
 # Other settings
 c.completion.height = '30%'
 
-# Empty whitelist
-c.content.host_blocking.whitelist = []
-
 # Start site
 c.url.default_page = 'https://duckduckgo.com'
 c.url.start_pages = 'https://duckduckgo.com'
 
 # Search engines
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
-                       'rr': 'https://reddit.com/r/{}',
-                       'yy': 'https://www.youtube.com/results?search_query={}',
                        "osm": "https://www.openstreetmap.org/search?query={}",
                        'aw': 'https://wiki.archlinux.org/?search={}',
                        'w': 'https://en.wikipedia.org/?search={}',
-                       'car': 'https://carta.stanford.edu/{}',
+                       'car': 'https://carta-beta.stanford.edu/course/{}',
                        'stan': '{}.stanford.edu',
                        'tpb': 'https://thepiratebay.org/search/{}',
                        'libgen': 'http://libgen.rs/search.php?req={}',
 }
 
-c.content.host_blocking.whitelist = ['thepiratebay.org','adf.ly','aax-us-east.amazon-adsystem.com','s.amazon-adsystem.com']
+# c.content.host_blocking.whitelist = ['thepiratebay.org','adf.ly','aax-us-east.amazon-adsystem.com','s.amazon-adsystem.com']
 c.auto_save.session = True
 c.content.autoplay = False
 c.content.pdfjs = True
@@ -296,5 +292,3 @@ def filter_yt(info: interceptor.Request):
 
 
 interceptor.register(filter_yt)
-
-config.load_autoconfig(False)

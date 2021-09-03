@@ -121,9 +121,6 @@ for num in $(seq 1 10); do
 done
 #+end_src
 Assign workspaces to certain displays.
-#+begin_src conf
-workspace $ws1 output primary
-#+end_src
 #+begin_src conf :noweb yes
 <<workspace-assignments()>>
 #+end_src

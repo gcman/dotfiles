@@ -4,7 +4,8 @@ STATE=`ping -c 1 8.8.8.8 > /dev/null && echo "online" || echo "offline"`
 
 if [ "$STATE" = 'online' ]
 then
-    /usr/bin/mbsync -a
+    cd /home/gautam/mail/princeton
+    /usr/bin/gmi sync
     /home/gautam/bin/loadmail
     COUNT=`notmuch count tag:inbox and tag:unread`
     MESSAGE="$COUNT unread message"

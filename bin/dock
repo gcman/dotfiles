@@ -9,7 +9,7 @@ function connect(){
 
 function disconnect(){
     xrandr --output $MONITOR --off
-    amixer -c 0 set Master mute
+    amixer sset Master mute
 }
 
 if [ $STATUS == "connected" ]; then

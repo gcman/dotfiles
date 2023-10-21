@@ -14,7 +14,7 @@ $exec dock
 #+end_src
 Then I start up Emacs and the browser, and make the screen not too blue.
 #+begin_src conf
-$exec emacs
+$exec emacs-29.1
 $exec qutebrowser
 $exec redshift
 #+end_src
@@ -80,11 +80,13 @@ bindsym $mod+a focus parent
 ** Displays
 Sometimes I need to manually dock or undock.
 #+begin_src conf
-set $mode_monitors Monitor setup: (0) laptop only, (1) external (2) mirror
+set $mode_monitors Monitor setup: (0) laptop only (1) external (2) mirror (3) external only (4) reset
 mode "$mode_monitors" {
   bindsym 0 $exec "xrandr --output DP1 --off", mode "default"
   bindsym 1 $exec "/home/gautam/bin/dock", mode "default"
   bindsym 2 exec "xrandr --output DP1 --same-as eDP1 --scale 2x2 --scale-from 3200x1800"
+  bindsym 3 exec "xrandr --output eDP1 --off"
+  bindsym 4 exec "xrandr --output eDP1 --auto --primary && /home/gautam/bin/dock"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"

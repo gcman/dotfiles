@@ -21,3 +21,7 @@ Emacs.font: Hack-10
 Emacs.mode-line.attributeForeground: #93a1a1
 Emacs.mode-line.attributeBackground: #002b36
 Emacs.mode-line.attributeBox: (:line-width 1 :color "#073642")
+rofi.combi-modi:    window,drun
+rofi.theme:         solarized
+rofi.font:          hack 24
+rofi.modi:          combi

@@ -9,7 +9,7 @@ def bind_chained(key, *commands):
 config.load_autoconfig(False)
 
 # Don't have to always press Shift
-config.bind(';', 'set-cmd-text :')
+config.bind(';', 'cmd-set-text :')
 
 # Reload config
 config.bind('<Ctrl-x><Ctrl-l>', 'config-source')
@@ -27,17 +27,17 @@ config.bind('J', 'scroll-page 0 0.95')
 config.bind('K', 'scroll-page 0 -0.95')
 config.bind('<Ctrl-a>', 'back')
 config.bind('<Ctrl-e>', 'forward')
-config.bind('<Ctrl-x><Ctrl-f>', 'set-cmd-text -s :open -t')
-config.bind('<Ctrl-u><Ctrl-x><Ctrl-f>', 'set-cmd-text -s :open')
+config.bind('<Ctrl-x><Ctrl-f>', 'cmd-set-text -s :open -t')
+config.bind('<Ctrl-u><Ctrl-x><Ctrl-f>', 'cmd-set-text -s :open')
 config.bind('<Alt-w>', 'yank selection')
 config.bind('yu', 'yank url')
-config.bind('yf', 'set-cmd-text :open {url}')
+config.bind('yf', 'cmd-set-text :open {url}')
 config.bind('<Ctrl-y>', 'fake-key <Ctrl-v>', mode='insert')
-config.bind('<Ctrl-y>', 'set-cmd-text -a {clipboard}', mode='command')
+config.bind('<Ctrl-y>', 'cmd-set-text -a {clipboard}', mode='command')
 config.bind('<Ctrl-k>', 'fake-key <Ctrl-x>', mode='insert')
 
-config.bind('f', 'set-cmd-text -s :open -t')
-config.bind('F', 'set-cmd-text -s :open')
+config.bind('f', 'cmd-set-text -s :open -t')
+config.bind('F', 'cmd-set-text -s :open')
 
 config.bind('<Escape>', 'mode-leave', mode='insert')
 config.bind('<Ctrl-g>', 'mode-leave', mode='insert')
@@ -66,7 +66,6 @@ config.bind('<Ctrl-x>0', 'tab-close')
 config.bind('<Ctrl-x>k', 'tab-close')
 config.bind('d', 'tab-close')
 config.bind('D', 'tab-clone')
-config.bind('I', 'tab-close')
 config.bind('u', 'undo')
 config.bind('<Ctrl-x>1', 'tab-only')
 config.bind('<Alt-a>', 'tab-prev')
@@ -77,10 +76,10 @@ config.bind('<Ctrl-x>l', 'reload')
 config.bind('r', 'reload')
 
 # Searching
-config.bind('s', 'set-cmd-text /', mode='normal')
-config.bind('/', 'set-cmd-text /', mode='normal')
-config.bind('?', 'set-cmd-text ?', mode='normal')
-config.bind('<Ctrl-r>', 'set-cmd-text ?', mode='normal')
+config.bind('s', 'cmd-set-text /', mode='normal')
+config.bind('/', 'cmd-set-text /', mode='normal')
+config.bind('?', 'cmd-set-text ?', mode='normal')
+config.bind('<Ctrl-r>', 'cmd-set-text ?', mode='normal')
 config.bind('<Ctrl-s>', 'search-next', mode='normal')
 config.bind('<Ctrl-r>', 'search-prev', mode='normal')
 
@@ -125,9 +124,9 @@ config.bind('+', 'zoom-in')
 config.bind('-', 'zoom-out')
 
 # command mode
-config.bind('<Ctrl-Space>', 'set-cmd-text :')
-config.bind('<Alt-x>', 'set-cmd-text :')
-config.bind(':', 'set-cmd-text :')
+config.bind('<Ctrl-Space>', 'cmd-set-text :')
+config.bind('<Alt-x>', 'cmd-set-text :')
+config.bind(':', 'cmd-set-text :')
 config.bind('<Up>', 'command-history-prev', mode='command')
 config.bind('<Alt-p>', 'command-history-prev', mode='command')
 config.bind('<Down>', 'command-history-next', mode='command')
@@ -142,6 +141,7 @@ config.bind('<Ctrl-p>', 'completion-item-focus prev', mode='command')
 config.bind('<Tab>', 'completion-item-focus next', mode='command')
 config.bind('<Ctrl-i>', 'completion-item-focus next', mode='command')
 config.bind('<Ctrl-n>', 'completion-item-focus next', mode='command')
+config.bind('<Shift-Backspace>', 'completion-item-del', mode='command')
 config.bind('<Alt-b>', 'rl-backward-word', mode='command')
 config.bind('<Ctrl-w>', 'rl-backward-kill-word', mode='command')
 config.bind('<Alt-d>', 'rl-kill-word', mode='command')
@@ -243,7 +243,6 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}',
                        "osm": "https://www.openstreetmap.org/search?query={}",
                        'aw': 'https://wiki.archlinux.org/?search={}',
                        'w': 'https://en.wikipedia.org/?search={}',
-                       'car': 'https://carta-beta.stanford.edu/course/{}',
                        'stan': '{}.stanford.edu',
                        'tpb': 'https://thepiratebay.org/search/{}',
                        'libgen': 'http://libgen.rs/search.php?req={}',
@@ -261,6 +260,8 @@ c.new_instance_open_target = "tab-bg-silent"
 
 c.content.geolocation = 'ask'
 c.content.headers.do_not_track = True
+
+c.content.blocking.method = "both"
 
 c.fonts.default_family = ["Hack", "xos4 Terminus", "Terminus", "Monospace", "DejaVu Sans Mono", "Monaco", "Bitstream Vera Sans Mono", "Andale Mono", "Courier New", "Courier", "Liberation Mono"]
 c.qt.highdpi = True

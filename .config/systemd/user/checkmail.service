@@ -4,3 +4,4 @@ Description=Mailbox synchronization service
 [Service]
 Type=oneshot
 ExecStart=/home/gautam/bin/checkmail
+WorkingDirectory=/home/gautam/mail/princeton

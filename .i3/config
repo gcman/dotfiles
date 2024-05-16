@@ -3,7 +3,7 @@ set $exec exec --no-startup-id
 exec-always --no-startup-id dock
 $exec dock
 
-$exec emacs-29.1
+$exec emacs-29.3
 $exec qutebrowser
 $exec redshift
 

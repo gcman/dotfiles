@@ -14,7 +14,7 @@ $exec dock
 #+end_src
 Then I start up Emacs and the browser, and make the screen not too blue.
 #+begin_src conf
-$exec emacs-29.1
+$exec emacs-29.3
 $exec qutebrowser
 $exec redshift
 #+end_src

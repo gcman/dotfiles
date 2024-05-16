@@ -1,0 +1,10 @@
+[Desktop Entry]
+Exec=protontricks-launch --no-term %f
+Name=Protontricks Launcher
+Type=Application
+Terminal=false
+NoDisplay=true
+Categories=Utility
+Icon=wine
+MimeType=application/x-ms-dos-executable;application/x-msi;application/x-ms-shortcut;
+X-Desktop-File-Install-Version=0.26
